@@ -1,0 +1,1534 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : PAGE_Secure_Payment_Paybox
+ major_version : 28
+ minor_version : 0
+ type : 65538
+ description : ""
+ subtype : 0
+page :
+ name : PAGE_Secure_Payment_Paybox
+ identifier : 0x2ecf75dd578a5c07
+ internal_properties : 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
+ properties : {}
+ controls :
+  -
+    name : STC_Summary_of_your_order
+    identifier : 0x2ecf75dd578b5c07
+    internal_properties : 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
+    properties :
+     x : 20
+     y : 8
+     width : 747
+     height : 252
+    type : 3
+    code_elements :
+     type_code : 2
+     alias : A4
+     p_codes : []
+  -
+    name : CELL_Cell1
+    identifier : 0x2ecf75dd578c5c07
+    internal_properties : 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
+    properties :
+     x : 14
+     y : 316
+     width : 747
+     height : 406
+    controls :
+     -
+       name : EDT_TRANSACTION_NUM
+       identifier : 0x2ecf75dd578d5c07
+       internal_properties : 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
+       properties :
+        x : 12
+        y : 10
+        width : 388
+        height : 28
+       type : 2
+       code_elements :
+        type_code : 3
+        alias : A8
+        p_codes :
+         -
+           type : 852010
+           role : N
+         -
+           type : 852075
+           role : N
+         -
+           type : 851983
+           role : N
+         -
+           type : 852009
+           role : N
+         -
+           type : 852244
+           role : N
+           enabled : false
+         -
+           type : 852246
+           role : N
+           enabled : false
+         -
+           type : 852245
+           role : N
+           enabled : false
+     -
+       name : EDT_AMOUNT
+       identifier : 0x2ecf75dd57905c07
+       internal_properties : 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
+       properties :
+        x : 12
+        y : 43
+        width : 248
+        height : 28
+       type : 2
+       code_elements :
+        type_code : 3
+        alias : A93
+        p_codes :
+         -
+           type : 852010
+           role : N
+         -
+           type : 852075
+           role : N
+         -
+           type : 851983
+           role : N
+         -
+           type : 852009
+           role : N
+         -
+           type : 852244
+           role : N
+           enabled : false
+         -
+           type : 852246
+           role : N
+           enabled : false
+         -
+           type : 852245
+           role : N
+           enabled : false
+     -
+       name : EDT_EMAIL
+       identifier : 0x2ecf75dd57935c07
+       internal_properties : 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
+       properties :
+        x : 12
+        y : 77
+        width : 387
+        height : 28
+       type : 2
+       code_elements :
+        type_code : 3
+        alias : A92
+        p_codes :
+         -
+           type : 852010
+           role : N
+         -
+           type : 852075
+           role : N
+         -
+           type : 851983
+           role : N
+         -
+           type : 852009
+           role : N
+         -
+           type : 852244
+           role : N
+           enabled : false
+         -
+           type : 852246
+           role : N
+           enabled : false
+         -
+           type : 852245
+           role : N
+           enabled : false
+     -
+       name : LINK_Cancel_modify_my_order
+       identifier : 0x2ecf75dd57965c07
+       internal_properties : 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
+       properties :
+        x : 148
+        y : 117
+        width : 218
+        height : 20
+       type : 16
+       code_elements :
+        type_code : 47
+        alias : A6
+        p_codes :
+         -
+           type : 851998
+           role : N
+         -
+           internal_properties : CAAAAAgAAABvhQpwjKu/fxiiCXBy5ZViT6d7CKKTbCoGRYEqD7zf6STCDmX0Ijc4NTAVfs8EoOT8iblTBicypKDvEPbLwEogmC7B7dpCulq6bJYFrQ4sns88rKCOCQ==
+           code : |1-
+            
+            PageRefresh(PreviousPage())
+           type : 851984
+         -
+           type : 1310736
+           enabled : false
+         -
+           type : 852149
+           role : N
+           enabled : false
+     -
+       name : IMG_PAYBOX
+       identifier : 0x2ecf75dd57975c07
+       internal_properties : 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
+       properties :
+        x : 12
+        y : 145
+        width : 127
+        height : 50
+       type : 22
+       code_elements :
+        type_code : 57
+        alias : A10
+        p_codes :
+         -
+           type : 851999
+           role : N
+         -
+           type : 851998
+           role : N
+         -
+           type : 851984
+           enabled : false
+         -
+           type : 1310736
+           enabled : false
+         -
+           type : 852149
+           role : N
+           enabled : false
+         -
+           type : 852178
+           role : N
+           enabled : false
+         -
+           type : 852179
+           role : N
+           enabled : false
+         -
+           type : 852180
+           role : N
+           enabled : false
+     -
+       name : STC_TITLE
+       identifier : 0x2ecf75dd57985c07
+       internal_properties : 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
+       properties :
+        x : 12
+        y : 209
+        width : 596
+        height : 33
+       type : 3
+       code_elements :
+        type_code : 2
+        alias : A95
+        p_codes : []
+     -
+       name : BTN_HELP
+       identifier : 0x2ecf75dd57995c07
+       internal_properties : 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
+       properties :
+        x : 489
+        y : 152
+        width : 48
+        height : 51
+       type : 4
+       code_elements :
+        type_code : 4
+        alias : A35
+        p_codes :
+         -
+           type : 851998
+           role : N
+         -
+           internal_properties : CAAAAAgAAABvhQpwjKu/fxiiCXBy5ZViT6d7CKKTbCoGRYEqD7zf6STCDmX0Ijc4NTAVfs8EoOT8iblTBicypKDvEPbLwEogmC7B7dpCulq6bJYFrQ4sns88rKCOCQ==
+           code : |1+
+            
+            PageDisplayDialog(PAGE_INFO_PAYBOX)
+           type : 851984
+         -
+           type : 1310736
+           enabled : false
+         -
+           type : 852149
+           role : N
+           enabled : false
+     -
+       name : CBOX_REMEMBER
+       identifier : 0x2ecf75dd579a5c07
+       internal_properties : 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
+       properties :
+        x : 190
+        y : 310
+        width : 448
+        height : 22
+       options :
+        -
+          identifier : 0x2ecf75dd579b5c07
+          internal_properties : CAAAAAgAAADid0gLdnJJyCD9u6wlSeDcG3UqvLsNJMk+Tx2GqWE3u9oFCBb56P225k+mLugQqY12r2D3W3VI+ujlXrjEGAvW3fv91qdaLjoY1qnPXg5eSa/Tmmv7ujCAu+QMBft2yWy2UgQA6BPOCf9xRqgmSIZpZte/opH9gULLj29P1DvJ5zEOkmfbXcc1iSwDGk5iIowZosH06IVulj/Yk1ND+YwEMsPVgzhJiUf9lJxuaClPIQM3/mAVK7W3muakGKKJhBHdmT3A3ucU0wdOK7jrHvGY6VlLKbYl4zuJED6SGxst87y2mo+fvOzK8jY5t+aoFbEUueTzOKQci/zqfD/BDoO7OMt48KaA/kDILDbEkUptpp1Bxvv3SAZ0MjPDVwvuByMiPUg3fqNYfp8DwkBGaWOk7LJfhvoFRZWqBrKulw3Q4Hp21aoRZetMwh4hFEDwyLn9/BiWP+fSVj/TDvwJdDWWy0l8qDFn96mB/PLFNL4jroAjZWz85HVCt1T6oUijEmE4nV8XrZObkBXaQRvE37hO24iswo0PBdj18UtPSkgN2Ke8CkkDVup1Uj3crMXD7atIUaIKUBhDbzlXStPDkyVH9wEB8BGxGueoyoiqcTUMebZbs9XniwjHTa/Sss0BADAeocM8Lfg2XW/tOJCCC+DdbDnLdxN+3YNp5mimN/SkM2hY9iQosoJjN1QP1O0VvUDNhvZyn3lHYMQrf0mKOMHsp1W/kYS0eAe0bA51WpVpiIPehGK0/wRl+XRBbfJYmFPFqDL6t/iZEsww/vcNV5arrOietOy5ZwBq6mZe/zrvb7G8t7nPQPzNl+WEUDNXYsKKFBvqos/lie8z6piObojcwCpafMzREak4QDGNwHM1V4Gg9Jr4mx6pR8ItQTPwp+cvgD92eMNanRTaWreio+RqAcy93LdXxHXB1PmWdqlpHYlDAjuJIyQiNuet5rbk3zrCisf6R2OLSg==
+          type : 50
+       type : 5
+       controls : []
+       code_elements :
+        type_code : 5
+        alias : A14
+        p_codes :
+         -
+           type : 852010
+           role : N
+         -
+           type : 851983
+           role : N
+         -
+           internal_properties : CAAAAAgAAABvhQpwjKu/fxiiCXBy5ZViT6d7CKKTbCoGRYEqD7zf6STCDmX0Ijc4NTAVfs8EoOT8iblTBicypKDvEPbLwEogmC7B7dpCulq6bJYFrQ4sns88rKCOCQ==
+           type : 852015
+         -
+           type : 1310767
+           enabled : false
+         -
+           type : 852150
+           role : N
+           enabled : false
+         -
+           type : 852009
+           role : N
+     -
+       name : RADIO_SELECT_CARD
+       identifier : 0x2ecf75dd579c5c07
+       internal_properties : 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
+       properties :
+        x : 80
+        y : 261
+        width : 94
+        height : 92
+       options :
+        -
+          identifier : 0x2ecf75dd579d5c07
+          internal_properties : CAAAAAgAAACFX/L4SnWRGDP8GyvOQiw1qPyibRrPkumEUPtW7AcAHUzN1p2P/OFGuhRpHYOwb+XQQZTjGyUTQN6O4mUpoE1Gbevo9brB5Gnd9ZZKJ89QDDKOZTI4KmLMy/fepFxRcSSOqAkVgnC72a9jMH9g2BsJ5zwg0Rm7+dOBk17TIgiAS3uyg26GKypMDujND/1H/dgH/kqLWBJ7qCeIn9aPur7WWFE3c+lpqtRxEcjkchNqxW9OsEfoo9K4nswY8j1Ds2QckSCsS3eSojL0FxRUdAnrq8bcjpIFgy/1/zM/pHLjKt2xfbJ7kLVywZUd/KyR2I8Y/lxLdU+TKq+coVtJwk1WJkcnBYr0xuSRfuQAcNHvqYwcfQznKdNmLPKYAMBvF7+SbFlbXANLmfwA/I1GdpeDZ7E/I/iCDBKfVR5a/Z4vnDL0w0PBuS7dPb3avNwNJ6M5zNg56FIWUCCTDCRQsJCE+CuTEHqIn1ZwM7XNUWkoH8ewU08Ok66S6wr2CQPINRh20Z49WvIPH0opOHHRHLLDibbw2DfNHiD4dLUMtzFZST569k5cXcb8aFO38yoezEbC7Kjnu3AKMDICHx2L4A64s5Qxhmj/Ke+rOFlC
+          type : 51
+        -
+          identifier : 0x2ecf75dd579e5c07
+          internal_properties : CAAAAAgAAABFuSUUFwV7gH5OHInUX4nncH3Qei7VReDNdVEC8eM8yWyTFIOZa5WZop7hRGVAXZ9NV1e4o7FiimxYgpJkFMVpZQPukrG/wq9npVhULK5+Be1oFhIQ3tW/N9NQGR0d8fikIUZgKCZ/2rLcBi4ElRJleEpGCogoAFuIVZCbcgonfQifhM2dRjus3pb9+nq2hthrQR+CQuyRolJBphHcyg5rnPyHYIY/yfFun0qsJ24Mw7RdbT2UhdTugijYq4h/GJtBRyhadlvzVJimtXP991lv+8MBFU0cmEgxBxaz7cwF40ZbaYCtQZ5j8Md+kwqd1uLQJe0Fu7YizE/EeGSpn4G/p4wrOL8u6oYxdZUw8QOQmX6j+irQg2H6N4q8xlmm6+L/F0y02OhjYgLl58KvD8Wo6dVE51BV07t9K6gEq0T0z7KriPMtxddnr/6qJumi0xBIHbAKWTCYp9mm9e07E+aCeaHWn2KzuGQW0rj7qyCC5QNxZr3OVaN9D3BTAA8BBYr5p44VCFsswBOakfiLTi8I3w4taIeMuuwdDUGwOrS9zH2wW6TcvewkPyGEOnZYr5OLSD3OnUF6unC5l0LPPbP9AZQnGr4ByAgWdO8+IZF1NOP7yDeGeXcbulVN8c5s6hJtjS8odU/w0p8A5Tmmhs9ktrYscsuJIQft
+          type : 51
+       type : 6
+       controls : []
+       code_elements :
+        type_code : 6
+        alias : A16
+        p_codes :
+         -
+           type : 852010
+           role : N
+         -
+           code : |1-
+            
+           type : 851983
+           role : N
+         -
+           internal_properties : CAAAAAgAAABvhQpwjKu/fxiiCXBy5ZViT6d7CKKTbCoGRYEqD7zf6STCDmX0Ijc4NTAVfs8EoOT8iblTBicypKDvEPbLwEogmC7B7dpCulq6bJYFrQ4sns88rKCOCQ==
+           type : 852015
+         -
+           type : 1310767
+           enabled : false
+         -
+           type : 852150
+           role : N
+           enabled : false
+         -
+           type : 852009
+           role : N
+     -
+       name : LINK_Delete_this_card
+       identifier : 0x2ecf75dd579f5c07
+       internal_properties : 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
+       properties :
+        x : 190
+        y : 338
+        width : 149
+        height : 20
+       type : 16
+       code_elements :
+        type_code : 47
+        alias : A19
+        p_codes :
+         -
+           code : |1+
+            
+            
+           type : 851998
+           role : N
+         -
+           internal_properties : CAAAAAgAAABS2vA71fXAZ1mebBNpqlBUEVj4HcdlWzSSkEdK5i0a1q4t2mwgoOpUKHAdPg3HP+VNmqTkjJU4dsNP6nqUBOPG/cFd/duo3X7m8UH0pFj2JuIJh7+1Y5muO+yjyYkRD9LbVNOkk+tZaeqB8LKqDz8DBNYa6rdc6mCDjDVTXgqy0rgOVKnXhaqv3FdUisnGvSE8mUnA+lqq+JKTQyt1Hy76wnQowGoZh3VAfAocxP43QG7qsvijqVbZ
+           code : |1+
+            //to indicate a specific directory for the payment file of the component (or a connection)
+            //we advise you to include this code in the project initialization (for the return AWP pages)
+            //DataParameters(fDataDir()+"\Payment")
+            
+            // If a problem occurs, to enable a runtime log, use the following code line IN THE INITIALIZATION CODE OF PROJECT (once the connection to the site is established): 
+            // dbgEnableLog(SET_SECUREPAYMENT.gsDataDirectiory + [fSep] + "Trace_PS_" + SysDateTime() + ".wlog", LogAll)
+            // Online help about runtime logs: https://doc.pcsoft.fr/fr-FR/?2019030&name=Log_execution
+            // The generated .wlog file must be opened with WEBDEV and the loaded project.
+            // To see the details of the actions performed by the component, the WW_SecurePayment project must be loaded beforehand in the component configuration.
+            
+            
+            
+            // Declare a SecurePayment object: already done in the globals of the pages: MyPayment is SecurePayment (PayBox)
+            
+            // Configure the payment (Paybox test data)
+            //
+            
+            //Parameter of test mode: http://www1.paybox.com/space-integrator-documentation/test-accounts/
+            
+             MyPayment is SecurePayment(PayBox)
+            
+            //	//Parameters of PAYBOX SYSTEM test account (non 3D-Secure), Ensign: "TEST PAYBOX 1":
+            // Site		 	: 1999888
+            // Rang			: 32
+            // Identifiant	: 107904482
+            // LOGIN 		: 199988832
+            // Password : 1999888I
+            
+            //	//Parameters of PAYBOX SYSTEM test account (3D-Secure), Ensign: "TEST PAYBOX 3":
+            // Site		 	: 1999888
+            // Rang			: 43
+            // Identifiant	: 107975626
+            // LOGIN 		: 199988843
+            // Password : 1999888I
+            
+            //	//Parameters test account Paybox Direct 3-D Secure tests:
+            // Site		 	: 1999888                                   Secure// Rang			: 63
+            // Identifiant	: 109518543
+            // LOGIN 		: 199988863
+            // Password : 1999888I
+            
+            MyPayment:Contract			= "1999888" //this parameter corresponds to "site" and it must include 7 characters, don't forget the quote if it starts with a zero!
+            MyPayment:Rang			= "32" //Must be included between quotes with a zero before if necessary to get 2 characters
+            MyPayment:CompanyCode		= "107904482" //this parameter corresponds to "E-transaction identifier" for Crédit Agricole
+            MyPayment.Keyphrase		= "0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF"
+            //for one-click payment:
+            MyPayment.Key				= "1999888I" //Password of the merchant back-office
+            
+            //	 You have the ability to force parameters for the HTTP requests: 
+            MyPayment.HTTP_RequestMode 	= SecurePayment.HTTP_NATIVE_MODE // or  SecurePayment.HTTP_WININET_MODE 
+            MyPayment.HTTP_TimeOut	 	= 5*1000 //5s
+            //MyPayment.HTTP_VersionSSL	 	= ProtocolTLS1_2 //(taken into account with HTTP_NATIVE_MODE only)
+            //MyPayment.HTTP_IgnoreError	= httpIgnoreInvalidCertificate
+            
+            // Mode for payment simulation or real payment?
+            //MyPayment:Simulation	= nRealModeTestOrSimulation //TEST_MODE REAL_MODE
+            //You have the ability to force the type of display of payment page
+            //MyPayment:DisplayFormat =  Computers
+            //This will be using a type of page adapted to the platform of user browser
+            
+            //You have the ability to force values in the form that will be sent to the bank, for example:
+            //MyPayment:FormParameterAdd("DIFFERE","004") 				//For a payment delayed 4 days
+            //MyPayment:FormParameterAdd("PRIV_PROCESSCODE","123") 	//Specific SOFINCO 
+            //MyPayment:FormParameterAdd("NUMQUESTION,"123456") 		//to force a unique id, it will be IdTransaction by default
+            //MyPayment:FormParameterAdd("ARCHIVAGE","123456") 			//to force an archive id (on 12 max)
+            
+            //card saved	
+            sTokenDateCVV is string=LoadInfoForExample("TOKEN")
+            MyPayment:CardToken				= ExtractString(sTokenDateCVV ,1,"  ")
+            //the date is in YYMM format, we want MMYY format
+            sPartDate is string=ExtractString(sTokenDateCVV ,2,"  ")
+            MyPayment:CardExpiryDate 	= sPartDate[[3 on 2]]+sPartDate[[1 on 2]]
+            MyPayment:CardCVV	 			= ExtractString(sTokenDateCVV ,3,"  ")
+            MyPayment:SubsReference		 	= LoadInfoForExample("REFSUB")	
+            
+            // Starts the actual payment procedure
+            // Initializes the order number (for test here)
+            
+            //And starts the payment with the amount to pay and the customer email
+            if CardOperation(MyPayment,CardDelete)= False then
+            //	Payment failed                           the email	
+            Error("Unable to delete the card:",MyPayment:ErrorInformation)
+            else
+            	//	Deletion OK
+            	//	Delete information of the deleted card from database
+            	//for example 
+            	SaveInfoForExample("TOKEN","")
+            	SaveInfoForExample("REFSUB","")	
+            	
+            RADIO_SELECT_CARD=1
+            RADIO_SELECT_CARD.Visible=False
+            MySelf.Visible=False
+            Info("The card has been deleted.")
+            		
+            end
+            
+            
+           type : 851984
+         -
+           type : 1310736
+           enabled : false
+         -
+           type : 852149
+           role : N
+     -
+       name : LINK_Pay
+       identifier : 0x2ecf75dd57a05c07
+       internal_properties : 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
+       properties :
+        x : 190
+        y : 284
+        width : 181
+        height : 20
+       type : 16
+       code_elements :
+        type_code : 47
+        alias : A1
+        p_codes :
+         -
+           internal_properties : CAAAAAgAAADCBBZlUXtNk/3NML3QD2FlZ3usfHlCy0mjuPtsvZxznp8c/wTk/CMQtycY2npdR5bN6B8ialNkFDcPoTLTxK0/naKGejkILIxe+ewDVseMZNYm5WV0+18jGRBYflBzs95DMScgjJfhQ/sk4Ebcl1n9crj0p3M5QmJzWntOA3JjhZ+kdqK5kexX/qPFDLoTSuWjSwL3kRLsnuV/l17NIHerGro/P1xqgSZ9asuFmhiM5Etxsqc/vIfh5wGxqSlIV4A2RKuBfw3BL3pRVrILd5sbk/SYj0znlYwcsPtMPLTvJxHpzGmZG8DHThQCmU3Ymx94g5YXWJAPd8BezK282Y92f/eMbR++6RZLPBqacVZ43UA36GRDzPs0kTBQ3He3z3Z+WentYCc3qV/80s/yOZ2wCvsIvFgM4yHryRSD
+           code : |1-
+            
+            
+            if EDT_AMOUNT = 0 then
+            Error("Specify a valid amount")
+            ReturnToCapture(EDT_AMOUNT)
+            end
+            
+            if EDT_EMAIL = "" then
+            Error("Specify a valid email address")
+            ReturnToCapture(EDT_EMAIL)
+            end
+            //the payment link is invisible
+            MySelf.Visible=False
+            CellDisplayDialog(CELL_TO_BANK)
+           type : 851998
+           role : N
+         -
+           internal_properties : CAAAAAgAAAAm9b8ij4Jj3TYI99pXhJFPQM3JUJLhUg2svivv69IExZvT36zRtyp8cDPNuPQLDTXuKxJJT7coTF9Ugy484M1XvKJZ1/AYsBqahMPaNUZ+2EnGuFwv0DF9l5Abn/2XQreIiyP6yxcKS4tSeJReUAzF4YHFXAF2KLg7bx7s/4OzQy6Xhr3HcFTqMsHS6v4EwShB8/eWvso2iQ0TrEC//aIAjP5NMmAr7Vv1DHh0/edml57SIwx6fKy8YRou60U1r+5u4UsuMMKLSbE5lk/1sAzuzDf8DjbWmTXy6Pr9qkWIVvYd3BplGzH9eNWU1JEWil7x9OgO8RtI7JbocWxSc/FHL+9SzN7lZgz9HXD/B5drthUrRT51re9u
+           code : |1+
+            //to indicate a specific directory for the payment file of the component (or a connection)
+            //we advise you to include this code in the project initialization (for the return AWP pages)
+            //DataParameters(fDataDir()+"\Payment")
+            
+            // If a problem occurs, to enable a runtime log, use the following code line IN THE INITIALIZATION CODE OF PROJECT (once the connection to the site is established): 
+            // dbgEnableLog(SET_SECUREPAYMENT.gsDataDirectiory + [fSep] + "Trace_PS_" + SysDateTime() + ".wlog", LogAll)
+            // Online help about runtime logs: https://doc.pcsoft.fr/fr-FR/?2019030&name=Log_execution
+            // The generated .wlog file must be opened with WEBDEV and the loaded project.
+            // To see the details of the actions performed by the component, the WW_SecurePayment project must be loaded beforehand in the component configuration.
+            
+            // Declares a SecurePayment object 
+            MyPayment is SecurePayment(PayBox)
+            
+            // Configure the payment (Paybox test data)
+            //
+            // TODO: [PAYBOX] To get your own test codes, visit the site http://www1.paybox.com
+            //
+            
+            //Parameter of test mode: http://www1.paybox.com/space-integrator-documentation/test-accounts/
+            
+            //	//Parameters of PAYBOX SYSTEM test account (non 3D-Secure), Ensign: "TEST PAYBOX 1":
+            //	MyPayment:Contract 		= "1999888" //(PBX_SITE)
+            //	MyPayment:Rang			= "32" //(PBX_RANG)
+            //	MyPayment:CompanyCode		= "107904482" //(PBX_IDENTIFIANT)
+            //	MyPayment.KeySentence		= "0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF"
+            //	
+            //	//Parameters of PAYBOX SYSTEM test account (3D-Secure), Ensign: "TEST PAYBOX 3":
+            //	MyPayment:Contract 		= "1999888" //(PBX_SITE)
+            //	MyPayment:Rang			= "43" //(PBX_RANG)
+            //	MyPayment:CompanyCode		= "107975626" //(PBX_IDENTIFIANT)
+            //	MyPayment.KeySentence		= "0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF"
+            
+            
+            
+            MyPayment:Contract			= "1999888" //this parameter corresponds to "site" and it must include 7 characters, don't forget the quote if it starts with a zero!
+            MyPayment:Rang			= "32" //Must be included between quotes with a zero before if necessary to get 2 characters
+            MyPayment:CompanyCode		= "107904482" //this parameter corresponds to "E-transaction identifier" for Crédit Agricole
+            MyPayment.Keyphrase		= "0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF"
+            //for one-click payment:
+            MyPayment.Key				= "1999888I" //Password of the merchant back-office
+            
+            //	 You have the ability to force parameters for the HTTP requests: 
+            MyPayment.HTTP_RequestMode 	= SecurePayment.HTTP_NATIVE_MODE // or  SecurePayment.HTTP_WININET_MODE 
+            MyPayment.HTTP_TimeOut	 	= 5*1000 //5s
+            //MyPayment.HTTP_IgnoreError	= httpIgnoreInvalidCertificate
+            //Mark:
+            // These parameters have no influence on the redirection of browsers at the time of sending to the bank's website and at the time of returning to the store
+            // They have an influence on:
+            // - the execution of the site code on the return of server to server
+            // - The server test for PAYBOX
+            
+            //possible customization of the folder containing the PAYBOX public key: "pubkey.pem"
+            //MyPayment.FolderPublicKeyFile=fDataDir()
+            
+            // Mode for payment simulation or real payment?
+            MyPayment:Simulation	= nRealModeTestOrSimulation //TEST_MODE_REAL_MODE
+            //You have the ability to force the type of display of payment page
+            //MyPayment:DisplayFormat =  Computers
+            //This will be using a type of page adapted to the platform of user browser
+            
+            //IF ERROR: "The return page <http://www.mydomain.fr/MYSITE_WEB/FR/backtostore.awp?TEST=O> did not return the expected result"
+            //If an error occurs on the test of the page for payment return on the server on a problem about address resolution 
+            //ability to disable the test by setting the IgnoreTestReturnPage property to True: 
+            //MyPayment.IgnoreTestReturnPage=True
+            
+            
+            //The language and the currency can be configured 
+            switch Nation()
+            	case nationFrench
+            		MyPayment:Language="FR"    
+            		MyPayment:CurrencyCode=eEUR
+            	other case
+            		MyPayment:Language="GBR"    
+            		MyPayment:CurrencyCode="USD"	
+            end
+            
+            //----------------------------------------------------------------------------------------------------------------
+            //--------------Manage the return to the store
+            //----------------------------------------------------------------------------------------------------------------
+            //if currently in SSL?
+            nAddressPageOption is int
+            if SecurePayment::EnvironmentValue("HTTPS", "off") ~= "on" then
+            nAddressPageOption=paSECURE
+            else
+            nAddressPageOption=paFULL
+            end
+            //- A ----- AWP pages for the internal operating mode of the component
+            // first, specify the name of the AWP pages containing the internal page IPAGE_PAYBACK of the component
+            // !Caution: your process for return management is not read in these pages!
+            //for the return to the store
+            MyPayment:PageBackToStore = PageAddress(backtostore,nAddressPageOption) 
+            //for managing the returns from server to server
+            //!Name to customize for better security: to avoid having the same name with all the WEBDEV developers! 
+            MyPayment:PageReturnServerToServer = PageAddress(nameofcustompageforthereturns2s,nAddressPageOption) 
+            
+            //Notes: 
+            // -  containing the internal page "IPage_Payback" ("Stand-alone AWP pages" must not be checked in the project)
+            // - the "Don't reference this page" option must be included in the details of these pages
+            // - no the process except for the internal page "IPAGE_Payback" must be included in this page. Your custom processes are found in OnPaymentAbandon, OnPaymentRefusal, OnPaymentValidation and OnServerCall
+            // - For better security, a custom page name should be specified for the page used to manage the returns from server to server
+            
+            // Then, this page will call a process specific to your site
+            
+            //- B ----- Indicate the links or buttons that will be run when going back to the store 
+            //You can also specify the HTTP link to an AWP page of the project
+            //In case of a canceled payment
+            MyPayment:OnPaymentCancelation 		= LINK_Back_to_the_store.FullName
+            //In case of a refused payment
+            MyPayment:OnPaymentRefusal 		= LINK_Back_to_the_store.FullName
+            //In case of a validated payment
+            MyPayment:OnPaymentValidation 	= LINK_Back_to_the_store.FullName
+            //In this example, always give the same link and perform a SWITCH in its code
+            
+            
+            //- C ----- Indicate the links or buttons that will be run when returning information from server to server
+            //	This return is automatically manages and it updates the transaction in the database of payments
+            // 	It is possible (and recommended) to indicate a specific process:
+            MyPayment:OnServerCall 		= LINK_Return_Server_to_Server.FullName
+            //or with an AWP page for return management, we could do:
+            //MyPayment:OnServerCall 		= PageAddress("",apFULL)[[TO PositionOccurrence(PageAddress("",apFULL),"/",3)]] +WebFolder()+["/"]+"FR/RETURN_PAGE.awp"
+            
+            //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  CAUTION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+            // - In test mode:
+            // 		From a development computer, there is only the return to the store (the server has no access to your test computer to perform the return from server to server)
+            // - In production with the "actual" server in real mode:
+            // 		This return is not sufficient because after the payment, the Web user can lose his connection or close his browser before going back to the store
+            // 		In addition to the return to the store, a return from server to server is performed by the bank (only on a real server accessible from the outside).
+            //		This other return is used to actually validate (or not) the transaction/the payment
+            
+            //For the secure PayBox payment, a fixed URL (configured in the PayBox account) must be specified for the "HTTP URL" for validating the order forms
+            //The URL to communicate to PayBox is this one (be careful with the case if you are using Apache):
+            //http://<domain of your site>/<Virtual alias of you site in uppercases>/SecurePayment/FR/<Name of the page for return from server to server>.awp
+            //example for a site name WW_SECURED_PAYMENT and the default return page: 
+            //	http://www.mysite.fr/WW_SECURE_PAYMENT_PAYBOX_WEB/SecurePayment/FR/backtostore.awp
+            //example with a site named WW_SECURE_PAYMENT and the return page "nameofcustompageforthereturns2s" as above mentioned: 
+            //	http://www.mysite.fr/WW_SECURE_PAYMENT_WEB/FR/nameofcustompageforthereturns2s.awp
+            
+            //----------------------------------------------------------------------------------------------------------------
+            //----------------------------------------------------------------------------------------------------------------
+            
+            
+            
+            //-- It is possible to request the deactivation of the PayBox signature verification with:
+            //MyPayment:CheckPayBoxSignature =  False
+            
+            // Initializes the order number (for test here)
+            MyPayment:OrderNumber = EDT_TRANSACTION_NUM
+            
+            //payment with a stored card?
+            if RADIO_SELECT_CARD=2 then	
+            	// Stored card
+            	sTokenDateCVV is string=LoadInfoForExample("TOKEN")
+            	MyPayment:CardToken				= ExtractString(sTokenDateCVV ,1,"  ")
+            	//the date is in YYMM format, we want MMYY format
+            	sPartDate is string=ExtractString(sTokenDateCVV ,2,"  ")
+            	MyPayment:CardExpiryDate 	= sPartDate[[3 on 2]]+sPartDate[[1 on 2]]
+            	MyPayment:CardCVV	 			= ExtractString(sTokenDateCVV ,3,"  ")
+            	MyPayment:SubsReference		 	= LoadInfoForExample("REFSUB")	
+            	
+            	
+            	//You have the ability to force values in the form that will be sent to the bank, for example:
+            	// (caution: in direct payment the parameters are not the same, they do not have the same name, they do not start with PBX_)
+            	//MyPayment:FormParameterAdd("CARDTYPE","PAYPAL") //to force the payment type to PAYPAL		
+            	//MyPayment:FormParameterAdd("PRIV_PROCESSCODE","123") 	//Specific SOFINCO 
+            	//MyPayment:FormParameterAdd("NUMQUESTION,"123456") 		//to force a unique id, it will be IdTransaction by default
+            	//MyPayment:FormParameterAdd("ARCHIVAGE","123456") 			//to force an archive id (on 12 max)	
+            	//for a deferred payment, 4 days
+            	//nNbDayDelayed is int = 4
+            	//MyPayment:FormParameterAdd("DIFFERE",NumToString(nNbDayDelayed, "03d")) 
+            	
+            	
+            	// Starts the actual payment procedure	
+            	//And starts the payment with the amount to pay and the customer email
+            	if Direct_Payment(MyPayment, EDT_AMOUNT, EDT_EMAIL) = False then
+            		//The payment was not started, the customer was not redirected to the bank
+            Error("Failure starting the secure payment",MyPayment:ErrorInformation)
+            	else
+            		//No redirection, no server-to-server code
+            		//return here directly 
+            		EndPayment(MyPayment)
+            	end
+            else	
+            	
+            	//You have the ability to force values in the form that will be sent to the bank, for example:
+            	//MyPayment:FormParameterAdd("PBX_DISPLAY","300") //To set the time-out to 300 seconds (5 minutes)
+            	//MyPayment:FormParameterAdd("PBX_CARDTYPE","") //to allow the Web user to chose the payment type (according to the contract signed with PayBox)
+            	//MyPayment:FormParameterAdd("PBX_CARDTYPE","AMEX") //to force the payment type to American Express card
+            	//MyPayment:FormParameterAdd("PBX_CARDTYPE","PAYPAL") //to force the payment type to PAYPAL
+            	// To pay in several instalments (4 instalments max.), you can indicate 3 additional withdrawals:
+            	// cyAmountOther is currency
+            	// cyAmountOther=150
+            	// dWithdrawalDate is date
+            	// for x=1 _to_ 3 
+            	// 	dWithdrawalDate..Month++ //every month	
+            	//	MyPayment:FormParameterAdd("PBX_2AMOUNT"+x,IntegerPart(cyAmountOther*100)) //Amount, 3 possible amounts: PBX_2AMOUNTx with x from 1 to 3, cents without commas
+            	//	MyPayment:FormParameterAdd("PBX_DATE"+x,DateToString(dWithdrawalDate,"MM/DD/YYYY")) //Date, 3 possible dates: PBX_DATEx with x from 1 to 3, MM//DD/YYYY format 	
+            	// END
+            	//for a deferred payment, 4 days
+            	//nNbDayDelayed is int = 4
+            	//MyPayment:FormParameterAdd("PBX_DIFFERE",NumToString(nNbDayDelayed, "02d")) 
+            	
+            	
+            	//It is necessary to store the card details?
+            	if CBOX_REMEMBER[1] then
+            		MyPayment:CardRemember=True
+            		//the customer must be uniquely identified (a unique customer number in the database, or an email address, etc.)
+            		//If no other information is given, the customer's email is used.
+            		//here we make a unique identifier with the email and the date/time (but the email or the customer number can be enough)
+            		MyPayment:SubsReference		 		= EDT_EMAIL+"_"+SysDateTime() 
+            		//But it would be preferable to do:
+            		//MyPayment:SubsReference		 	= "CL_"+Client.idClient
+            		//Or MyPayment:SubsReference		 = EDT_EMAIL
+            	else
+            		MyPayment:CardRemember=False
+            	end
+            	// Starts the actual payment procedure
+            	//And starts the payment with the amount to pay and the customer email
+            	if Payment_FromBank(MyPayment, EDT_AMOUNT, EDT_EMAIL) = False then
+            		//The payment was not started, the customer was not redirected to the bank
+            Error("Failure starting the secure payment",MyPayment:ErrorInformation)
+            	else
+            		//The payment is OK
+            		//The user is redirected to the PAYBOX site
+            		
+            		//Note: the transaction identifier is accessible via MyPayment:IdTransaction
+            		//the rest of the code will be in the processes "return to the store" and "Return from server to server"
+            	end
+            end
+            
+            
+            
+            //!! CAUTION: maximum size of return URLs for PAYBOX: 150 characters otherwise an error may occur: PayBox: INPUT error code -4
+            //the return URLs indicated to PayBox are not the ones that you specify but a URL to an AWP 'paybak' page, they look like this:
+            //http://localhost/WW_SECURED_PAYMENT_WEB/SecuredPayment/FR/payback.awp?act=ps_validated&secid=13&fpay=1   
+            //In this URL, there are up to 76 mandatory characters plus the domain of the site (localhost) and the alias of the site (WW_SECURE_PAYMENT_PAYBOX_WEB)
+            //There are 116 characters in this example. 74 characters can be used for the domain of your site and for the Web alias of the site
+            
+            
+            
+            //PAYBOX error:
+            //code   significance  
+            //-1     error while reading the parameters via stdin (POST method) (http reception error). 
+            //-2     memory allocation error. Not enough memory on the server. 
+            //-3     error while reading QUERY_STRING or CONTENT_LENGTH. (http error). 
+            //-4     PBX_RETURN, PBX_CANCELED, PBX_REFUSED or PBX_PERFORMED are too long (<150 characters). 
+            //-5     error while opening the file (if PBX_MODE contains 3): local file does not exist, not found or access error. 
+            //-6     error about file format (if PBX_MODE contains 3): local file with wrong format, empty or line wrongly formatted. 
+            //-7     A mandatory variable is missing (PBX_SITE, PBX_RANG, PBX_IDENTIFIANT, PBX_TOTAL, PBX_CMD,…). 
+            //-8     one of the numeric variables contains a non-numeric character ((site, rang, identifiant, montant,devise…) 
+            //-9     PBX_SITE contains a site number not exactly equal to 7 characters. 
+            //-10    PBX_RANG contains a rang number not exactly equal to 2 characters. 
+            //-11    PBX_TOTAL contains more than 10 or less than 3 numeric characters. 
+            //-12    PBX_LANGUE or PBX_DEVISE contains a code not exactly equal to 3 characters. 
+            //-13    PBX_ORD is empty or contains a reference whose length exceeds 250 characters. 
+            //-14    Not used 
+            //-15    Not used 
+            //-16    PBX_PORTEUR does not contain a valid email address. 
+            //-17    PBX_KEY does not contain a valid key (password). 
+            //-18    PBX_RETURN: Unknown data to return 
+            
+           type : 851984
+         -
+           type : 1310736
+           enabled : false
+         -
+           type : 852149
+           role : N
+           enabled : false
+    type : 39
+    code_elements :
+     type_code : 60
+     alias : A9
+     p_codes :
+      -
+        type : 851998
+        role : N
+      -
+        type : 852005
+        role : N
+      -
+        type : 852227
+        enabled : false
+      -
+        type : 1310979
+        enabled : false
+      -
+        type : 852228
+        role : N
+        enabled : false
+      -
+        type : 852217
+        role : N
+        enabled : false
+  -
+    name : LINK_Help_tuto
+    identifier : 0x2ecf75dd57a15c07
+    internal_properties : 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
+    properties :
+     x : 20
+     y : 266
+     width : 747
+     height : 37
+    type : 16
+    code_elements :
+     type_code : 47
+     alias : A13
+     p_codes :
+      -
+        type : 851998
+        role : N
+      -
+        internal_properties : CAAAAAgAAABvhQpwjKu/fxiiCXBy5ZViT6d7CKKTbCoGRYEqD7zf6STCDmX0Ijc4NTAVfs8EoOT8iblTBicypKDvEPbLwEogmC7B7dpCulq6bJYFrQ4sns88rKCOCQ==
+        type : 851984
+      -
+        type : 1310736
+        enabled : false
+      -
+        type : 852149
+        role : N
+        enabled : false
+  -
+    name : LINK_Return_Server_to_Server
+    identifier : 0x2ecf75dd57a25c07
+    internal_properties : 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
+    properties :
+     x : 543
+     y : 99
+     width : 181
+     height : 20
+    type : 16
+    code_elements :
+     type_code : 47
+     alias : A7
+     p_codes :
+      -
+        type : 851998
+        role : N
+      -
+        internal_properties : CAAAAAgAAADEe9r9ym2ETMrdW+p8HLq72asUJWwbFzOiNLwyMPzjQMftnPJHFNzgxfBmFqY0UtiCL4CZA+Gedj/GNg54JPNEtP4LceLN+4Op7VzhMonjBtaJKs1y7ShlI6nYieIBZGZKfDCChvR08WGffRACzeTKRT7beowdDx967Lc3GzqPFgijLJS3HNHWPB1bAE9yB0AnaVth0qLlUt/MOO5+tDYR34GETD7SrspmrzMUpTqemuaQl7GvnJt8ag==
+        code : |1+
+         //Process that will be run during the return from server to server
+         //this process is not performed via the Web user, nobody will have the visual result of this process
+         //therefore, update the specific database of the site only
+         //If a problem occurs, find a file named "SecurePayment.log" in the data directory
+         
+         
+         //Retrieve information about the payment
+         sListParameters is string
+         sIDOrder is string
+         cyPaymentAmount is currency
+         //Retrieves all the parameters received in "sListParameters" and in the associative array named SET_SECUREPAYMENT.IncomingParameters"
+         sListParameters=ListIncomingParameters(CR)
+         
+         // It is possible to save all the incoming parameters in a file
+         // These parameters are found in the "sListParameters" string and in the associative array named "SET_SECUREPAYMENT.IncomingParameters"
+         if InTestMode() then	
+         Trace("List of incoming parameters (to save):")
+         	//Or list of all parameters:
+         	for each sParameterValue,sParameterName of COL_SECUREPAYMENT.IncomingParameters
+         Trace(sParameterName+"="+sParameterValue)
+         	end
+         	//or 
+         	//Info("List of incoming parameters (to save):",sListParameters)	
+         end
+         
+         
+         sIDOrder =COL_SECUREPAYMENT.IncomingParameters["reference"]
+         cyPaymentAmount =Val(COL_SECUREPAYMENT.IncomingParameters["amount"])
+         
+         
+         //Notes: 
+         //- The functions named TransactionStatus and TransactionStatusAccordingToID are used to get information about the payment
+         //  from the order number (TransactionStatus) or from the transaction identifier (TransactionStatusAccordingToID)
+         //- The function named ListParameters() is used to retrieve all the incoming parameters
+         
+         //Position on the order
+         // IF NOT HReadSeekFirst(ORDER,IDORDER,sIDOrder) THEN
+         //	//!! Order not found in the database!!
+         //	StringDisplay("Return S2S with an order #"+sIDOrder+" not found in the database"+CR+"Incoming parameters:"+sListParameters,"text/plain")
+         //	RETURN
+         //END
+         
+         // According to the type of return
+         switch TypePaymentReturn()
+         
+         	// Payment validated
+         	case URL_OK
+         		//Find the order in the database to change its status to "paid"...
+         		//Example: 		
+         		// ORDER.PaymentStatus=StatusPaid
+         		//We advise you to save all the incoming parameters. These parameters are found in "sListParameters" and/or in the associative array named SET_SECUREPAYMENT.IncomingParameters"
+         		
+         		//stored card?
+         //		IF COL_SECUREPAYMENT.IncomingParameters["subscard"]<>"" THEN
+         //			//COL_SECUREPAYMENT.IncomingParameters["subscard"] contains the <token><double space><ExpiryDate in YYMM format><double space><CVV>
+         //			//Save the card in the database here or in the code to return to the store (this server-to-server return code is run only in deployment)
+         //			// ==> information of COL_SECUREPAYMENT.IncomingParameters["subscard"]
+         //			// AND the subscription reference given in MyPayment:SubsReference
+         //			SaveInfoForExample("REFSUB",COL_SECUREPAYMENT.IncomingParameters["refsub"])
+         //			SaveInfoForExample("TOKEN",COL_SECUREPAYMENT.IncomingParameters["subscard"])	
+         //		END
+         		
+         		// ORDER.MemoParameterBankReturn+=[CR]+"- The "+DateToString(DateSys(),"MM/DD/YYYY")+" at "+TimeToString(TimeSys(),"HH:MM:SS.CC")+", return from server to server on acceptation of payment, incoming parameters: "+sListParameters
+         		//
+         		//....
+         		//HModify(ORDER)
+         		
+         gbMyCodeReturnServerToServer = True
+         		
+         		//information that will be retrieved in the log file if it is enabled
+         StringDisplay("Correct S2S return received"+CR+"Parameters received:"+sListParameters,"text/plain")
+         		
+         	// Payment canceled
+         	case URL_CANCEL
+         		//Find the order in the database to change its status to "Payment canceled"...
+         		//Example: 		
+         		// ORDER.PaymentStatus=StatusCanceled
+         		//We advise you to save all the incoming parameters. These parameters are found in "sListParameters" and/or in the associative array named SET_SECUREPAYMENT.IncomingParameters"
+         		// ORDER.MemoParameterBankReturn+=[CR]+"- The "+DateToString(DateSys(),"MM/DD/YYYY")+" at "+TimeToString(TimeSys(),"HH:MM:SS.CC")+", return from server to server on cancelation of payment, incoming parameters: "+sListParameters
+         		//
+         		//....
+         		//HModify(ORDER)
+         		
+         		//information that will be retrieved in the log file if it is enabled
+         StringDisplay("Canceled S2S return received"+CR+"Parameters received:"+sListParameters,"text/plain")
+         		
+         	// Payment refused
+         	case URL_REFUSED
+         		//Find the order in the database to change its status to "Payment refused"...
+         		//Example: 		
+         		// ORDER.PaymentStatus=StatusRefused
+         		//We advise you to save all the incoming parameters. These parameters are found in "sListParameters" and/or in the associative array named SET_SECUREPAYMENT.IncomingParameters"
+         		// ORDER.MemoParameterBankReturn+=[CR]+"- The "+DateToString(DateSys(),"MM/DD/YYYY")+" at "+TimeToString(TimeSys(),"HH:MM:SS.CC")+", return from server to server on payment refusal, incoming parameters: "+sListParameters
+         		//
+         		//....
+         		//HModify(ORDER)
+         		
+         		//information that will be retrieved in the log file if it is enabled
+         StringDisplay("Refused S2S return received"+CR+"Parameters received:"+sListParameters,"text/plain")
+         		
+         	other case
+         		//information that will be retrieved in the log file if it is enabled
+         StringDisplay("Incorrect S2S return received"+CR+"Parameters received:"+sListParameters,"text/plain")
+         end
+         
+         
+        type : 851984
+      -
+        type : 1310736
+        enabled : false
+      -
+        type : 852149
+        role : N
+        enabled : false
+  -
+    name : LINK_Back_to_the_store
+    identifier : 0x2ecf75dd57a35c07
+    internal_properties : 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
+    properties :
+     x : 543
+     y : 73
+     width : 181
+     height : 20
+    type : 16
+    code_elements :
+     type_code : 47
+     alias : A2
+     p_codes :
+      -
+        type : 851998
+        role : N
+      -
+        internal_properties : CAAAAAgAAAB+QEZdqyzaMBctPvRrH6MScA+Kw6qGydECbDpm2EVp/UbELQvtuPD0rswqqAi7WbScGohMwu96o41cDLA9PFbAOq0DT/njAmpFnuldDAwXrbbK8bvnS0Sr6maMTNAzIE2/Q4aASJTP8xwxPbGlmpG1bAUc7tFEKHITq2it3OfUzvgUY8E31ia0GB224b2YkeqbJVFP92KcANOqFYkkNkEenJQtbOx7bpkNrBkPwwI0bkPnUc7sWUFEDsmgjxWxRlTQ84a2PwIvyuACfkxj5XHH6ZKcxIUyku0TpVWvYMh4C806gzD5alGQavj1pF+YLmxgyLWsJMsJDFxoFa5XvoDhnCXj9A==
+        code : |1+
+         //Retrieve information about the payment
+         sListParameters	is string
+         sIDOrder 		is string
+         cyPaymentAmount 	is currency
+         
+         
+         //Retrieves all the parameters received in "sListParameters" and in the associative array named SET_SECUREPAYMENT.IncomingParameters"
+         sListParameters=ListIncomingParameters(CR)
+         
+         // It is possible to save all the incoming parameters in a file
+         // These parameters are found in the "sListParameters" string and in the associative array named "SET_SECUREPAYMENT.IncomingParameters"
+         if InTestMode() then	
+         Trace("List of incoming parameters (to save):")
+         	//Or list of all parameters:
+         	for each sParameterValue,sParameterName of COL_SECUREPAYMENT.IncomingParameters
+         Trace(sParameterName+"="+sParameterValue)
+         	end
+         	//or 
+         	//Info("List of incoming parameters (to save):",sListParameters)	
+         end
+         
+         
+         sIDOrder =COL_SECUREPAYMENT.IncomingParameters["reference"]
+         cyPaymentAmount =Val(COL_SECUREPAYMENT.IncomingParameters["amount"]) / 100 //For PayBox the amount is Cents
+         
+         //check whether it is for the current order
+         if sIDOrder<>EDT_TRANSACTION_NUM then
+         Error("The order number that was received does not correspond to your order number")
+         	return
+         end
+         
+         //Position on the order
+         // IF NOT HReadSeekFirst(ORDER,IDORDER,sIDOrder) THEN
+         //	//!! Order not found in the database!!
+         //	Error("Unable to find your order (#"+sIDOrder+") in the database","Please contact us by phone with this order number")
+         //	RETURN
+         //END
+         
+         //Mark: 
+         // In case of problem or unexpected behavior...
+         // You can:
+         // 1 - Check the transaction log in the "Transactions" table, "LogInfo" item
+         //	This log can also be retrieved by TransactionLog, TransactionLogAccordingToID.
+         //  The log can be retrieved from the order number (TransactionLog) or from the transaction identifier (TransactionLogSelonID)
+         // 
+         // OR
+         //
+         // 2 - Enable a runtime log 
+         // to do so, use the following code line IN THE INITIALIZATION CODE OF PROJECT (once the connection to the site is established): 
+         // dbgEnableLog(SET_SECUREPAYMENT.gsDataDirectiory + [fSep] + "Trace_PS_" + SysDateTime() + ".wlog", LogAll)
+         // Link to the online help about the operating mode of runtime logs: https://doc.windev.com/en-EN/?2019030&name=Runtime_log
+         // The generated .wlog file must be opened with WEBDEV and the loaded project.
+         // To see the details of the actions performed by the component, the WW_SecurePayment project must be loaded beforehand in the component configuration.
+         //
+         //The TransactionStatus and TransactionStatusAccordingToID functions are used to get information about the payment
+         //from the order number (TransactionStatus) or from the transaction identifier (TransactionStatusAccordingToID)
+         
+         //Otherwise, we can check in the database of payments
+         if TransactionReturnS2s(sIDOrder) then
+         	//There was a return from server to server!
+         	//note: This will never happen on a development computer, 
+         	//but only on a server accessible on Internet, and with the URL for return from server to server configured in the bank account
+         	if gbMyCodeReturnServerToServer then
+         Info("Success of Return of Server to server in the component, and success of custom code of Return of Server to server")
+         	else
+         Error("Success of Return of Server to server in the component, BUT the custom code of Return of Server to server was not run")
+         	end	
+         end
+         
+         
+         // According to the type of return
+         switch TypePaymentReturn()
+         //we could also find the status of the order in the database of payments with:
+         //TransactionStatus(sOrderID) that also returns URL_OK, URL_REFUSED, URL_CANCEL or empty string if no type of return was detected
+         
+         	// Payment validated
+         	case URL_OK
+         		//check whether it is for the expected amount
+         		if cyPaymentAmount<>EDT_AMOUNT then
+         Error("The amount paid does not correspond to the amount due.")
+         			return	
+         		end
+         
+         		
+         		
+         
+         		
+         		//check whether the validation from server to server was performed (except in test mode because this return is possible with an external server only)
+         		if InTestMode() _or_ TransactionReturnS2s(sIDOrder) then
+         			//Process that finalizes the operation, that prints the invoice, etc..		
+         			//Example: 
+         			//We advise you to save all the incoming parameters. These parameters are found in "sListParameters" and/or in the associative array named SET_SECUREPAYMENT.IncomingParameters"
+         			// ORDER.MemoParameterBankReturn+=[CR]+"- The "+DateToString(DateSys(),"MM/DD/YYYY")+" at "+TimeToString(TimeSys(),"HH:MM:SS.CC")+", back to store after acceptation of payment, incoming parameters: "+sListParameters
+         			//
+         			//....
+         			//HModify(ORDER)	
+         			if COL_SECUREPAYMENT.IncomingParameters["subscard"]<>"" then
+         Info("Back to the store with accepted payment", "Thank you for saving your card")
+         				//COL_SECUREPAYMENT.IncomingParameters["subscard"] contains the <token><double space><ExpiryDate in YYMM format><double space><CVV>
+         				//Save the card in the database here or in the server-to-server return code (run only in deployment)
+         				// ==> information of COL_SECUREPAYMENT.IncomingParameters["subscard"]
+         				// AND the subscription reference given in MyPayment:SubsReference
+         				SaveInfoForExample("REFSUB",COL_SECUREPAYMENT.IncomingParameters["refsub"])
+         				SaveInfoForExample("TOKEN",COL_SECUREPAYMENT.IncomingParameters["subscard"])	
+         RADIO_SELECT_CARD.Visible=True				
+         RADIO_SELECT_CARD=2
+         CBOX_REMEMBER.Visible=False
+         			else
+         Info("Back to the store with accepted payment")
+         			end
+         			
+         		else
+         			//Payment validated but without return from server to server!
+         			//Check whether it is a communication problem between servers or whether it is a fraud attempt
+         			if COL_SECUREPAYMENT.IncomingParameters["subscard"]<>"" then
+         Info("Return to the shop with payment accepted, but bank information missing", "Thank you for saving your card")
+         				//COL_SECUREPAYMENT.IncomingParameters["subscard"] contains the <token><double space><ExpiryDate in YYMM format><double space><CVV>
+         				//Save the card in the database here or in the server-to-server return code (run only in deployment)
+         				// ==> information of COL_SECUREPAYMENT.IncomingParameters["subscard"]
+         				// AND the subscription reference given in MyPayment:SubsReference
+         				SaveInfoForExample("REFSUB",COL_SECUREPAYMENT.IncomingParameters["refsub"])
+         				SaveInfoForExample("TOKEN",COL_SECUREPAYMENT.IncomingParameters["subscard"])	
+         RADIO_SELECT_CARD.Visible=True
+         RADIO_SELECT_CARD=2
+         CBOX_REMEMBER.Visible=False
+         			else
+         Info("Payment accepted but bank information missing!","Pending order with human intervention required")
+         			end
+         			
+         			
+         		end
+         		
+         		
+         	// Payment canceled
+         	case URL_CANCEL
+         			//We advise you to save all the incoming parameters. These parameters are found in "sListParameters" and/or in the associative array named SET_SECUREPAYMENT.IncomingParameters"
+         			// ORDER.MemoParameterBankReturn+=[CR]+"- The "+DateToString(DateSys(),"MM/DD/YYYY")+" at "+TimeToString(TimeSys(),"HH:MM:SS.CC")+", back to store on cancelation, incoming parameters: "+sListParameters
+         			//
+         			//....
+         			//HModify(ORDER)	
+         
+         Info("Back to the store with canceled payment",COL_SECUREPAYMENT.IncomingParameters["error"]) //in case of cancelation, there is no return from server to server
+         		
+         		
+         	// Payment refused
+         	case URL_REFUSED
+         			//We advise you to save all the incoming parameters. These parameters are found in "sListParameters" and/or in the associative array named SET_SECUREPAYMENT.IncomingParameters"
+         			// ORDER.MemoParameterBankReturn+=[CR]+"- The "+DateToString(DateSys(),"MM/DD/YYYY")+" at "+TimeToString(TimeSys(),"HH:MM:SS.CC")+", back to store on refusal, incoming parameters: "+sListParameters
+         			//
+         			//....
+         			//HModify(ORDER)	
+         
+         		if InTestMode() _or_ TransactionStatus(sIDOrder)=URL_REFUSED then
+         Info("Back to the store with refused payment",COL_SECUREPAYMENT.IncomingParameters["error"])
+         		else
+         Info("Back to the store with refused payment BUT without confirmation of return from server to server","Pending order with human intervention required",COL_SECUREPAYMENT.IncomingParameters["error"])
+         		end
+         		
+         	// Error
+         	other case
+         Error("An error occurred while processing the transaction",COL_SECUREPAYMENT.IncomingParameters["error"])
+         		
+         end
+        type : 851984
+      -
+        type : 1310736
+        enabled : false
+      -
+        type : 852149
+        role : N
+        enabled : false
+  -
+    name : STC_NoName1
+    identifier : 0x2ecf75dd57a45c07
+    internal_properties : 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
+    properties :
+     x : 231
+     y : 15
+     width : 290
+     height : 114
+    type : 3
+    code_elements :
+     type_code : 2
+     alias : A5
+     p_codes : []
+  -
+    name : CELL_TO_BANK
+    identifier : 0x2ecf75dd57a55c07
+    internal_properties : CAAAAAgAAABJn4h+uBL+pNnX8+L1xNH7ZKkFYAjzlIdu68RmbmCAiE26AUlAumYiL+96kFwfRIHYUwHuRhQX8uV68Fei7Hp6lrpe0PqZfaRo8wl3NlSVKw9ACayjwGAoc0bQG2hWqod3mZgXcz3qQJ9GKePlAO/StuDz9uhkSDz2l/+pSe/IOlq6VOpR8dSyjGvTrcTeSjCiD27ZAIuMOaZmutPPs7fN2ZKS48zgbB9L/vAPr2vA0J3PL3hrm37P1waxRVge19nxbaoWS46JYYuyjgYih/K4ap3gaLGqPKW/yBF8A5YIkSmhfdhwImtFtWhcm4voN3CX750VpWj+XOqXDAsQVPzNk33I5okd/maJKjATi9YHs/8oUAyuYX1RxqzQ1+HZIHyTY3okMmvWmmi3AIB/14I8eblEYfsp9Q/fdwsGoXD3A5UKZha2AnJdkbLr1lfy5XYleloxRXozHPuDD21insIECmN2t+g+d77Q46mDdzHyzD9yNUQKgKIY197Q0l/C964BfomiZu1CZZpVtl95iGhm0UKEkNH9N+DdZZRJCVTR1khu1VoVkadZbBlKBFj6r9Ib9wgx+KugKs3zl9w7EAxooZVhcESKZAP5OJFrL13Qr5Q3G0DXett7sbg0iW5OGk3T0BADKvAkGad057bwpOaZz5Rl3+bEr9Cw47xy+3QMDnvqQmaw7DPP1nzuAVo4CdlLU0/tspIrkoEsmT+wotkBm4rkIrZCRH5tKKRAPqC7Umtu1sPZmfzmvaX6TtWl2u6ymb5aJO9Dp/h99y4hGCJF1GEGvF5f714bYZie+jTWe/GyPTStkx4xAoer3VdfzFwmzYH+GYXZkeFe21Um27zU6t/x4kT7f686RuuWBgwFhb0FMg2X0WBkPX5hAp2gdGwYalcdIyyjuj/yAzDMaCcq0BVx1ElFB4eMUwtqS5cBOSVLkG6s5I/f8aOevYkYottvXI6hAhk6es5yvtizwbSlZugXFuN1CR1wDRVq+psV4Vkky/7C6xMWHs6GrapZiXxwfT/BsNroc5+zZUYY87OhrRwaaydjsoRGdBPoZifJoMkUFAiHP2VwOnsvxIZ1/ygEIuvhitesgsbdcvniycozq5Lp/FgkWzXpyvguPyv04lMOWNdjKDzsjM4m0QLMjorpTGB92++8Q94FvGH20E7nVwJobj5ijTjgEwQOagG14zaFTHUjICBtXPCDztEVYRnXQ3cmmvYuyqRs+hzrJcENp/paGv3TwmBz0LWWRhYUDPPc7GMk/76Fmq2uqjoYaIbHhBshF+nFdUdhFqTyzQsfkgXyV9A3E/Qren3ZiT7OgfvyCSVgPE9GohetrGWwgZ1+ACEmCO/dlOdqz1ry7k4Xp6Sd2hWt11NFL9DlZsdzTXBEV9Qi2K02z0wKnnfU1vraVJJAQg5sJt9L5H/A0muuNRMvYaQTbnzUXaglEKv9O+UMwqdzZzHneaJEY1m+vsmnkY0YMrfOKS/dermdrjkzCS5TMOMP5F0h6XaM667K3Nv0QZw46HSLhaGfB1G80xjPRkMQyWorS4+JUkj2znZMgj/HAyeaw1vUl+BaZRTJ6WCrLsoK5hbntcZNH2JbpkKYFEF6YoqGuweJfB0vqVfZ6+nTIe8ZHCjW4X1s13TE6aIOcx48Q00dxAUrbBywWUztTwkhI9no/I0QtRK9cj1Lm3TEvZOdtS8lxE+rU+9KqzSfJUbm4u2Upt4XQDQ3PppRHRV5KUfUzP88xpvjl0SPOWbr4JvdNgyAUzMiUg/fZ/wyg156OZYUX8IJf88JckcFc3VSP4VvIIUT03lZGyn1hV1IH5gCeOgcra3vf5nnTjIjtIOocUq8cOAWqaoe8QI/sRN0QprX4ApxfxjP7TGXgJA9lPLh4rCMx3qOfpBKKg8BLXAoZexbqMfyXXNI0YYN9ntWNJZB2acFzhlRuRAmUgeWo8GJaiGxkyrto+MBSCZzoYJydCPnLWiNBg==
+    properties :
+     width : 682
+     height : 73
+    controls :
+     -
+       name : STC_Access_to_the_check1
+       identifier : 0x2ecf75dd57a65c07
+       internal_properties : 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
+       properties :
+        y : 10
+        width : 609
+        height : 20
+       type : 3
+       code_elements :
+        type_code : 2
+        alias : A11
+        p_codes : []
+     -
+       name : IMG_ANIMATION
+       identifier : 0x2ecf75dd57a75c07
+       internal_properties : CAAAAAgAAADCa9hLYK4PxoSfSEAqRU3tQYNZHwywudY8UMJW0fz7epgROf/aQBI1TsvP8FlRlVwzcFqgReXsXWxHu40tPmqlCkE+IW9dciatLiqd7oh8niRg0gck2uTCh+qEjE5HLnCzsBF5kdVQZVEffYE0emABKmWrd3oa9TtsUO+7eyGKq24w6DGrSoeTlDAaVkJWUnzQrzu2Nt1BpXP9L8cDotloygDyPtRAcvxJxp5kEYUYJ6PruliP0qdSFIvRQyV/SDTIm+ASE4YfPygDQM4w/IpGoV8tutRq5RBIeM/Wn3o3UJRXcYjB8irUa4LLuXIfWFjdSiNXVQ+tDpRzV/OTFakhbDRaBO0g6fq8OhQhkuxloGAvKYXH8VnsLElwqjbMGfU8qBhQ7IuAFuQ8cZYPD0UYyD04x5XVhXkfe11nf6gNdcFkvx42WOsyrIcoigpb5J50DmVLJrhtWgsByoboUDvvwjA+4azyE5uQDcsCa1ewmZtR8ekRm7xWd/E7ht5HIMUciQvTgWcuhALyROHo51XniSeM7uGgFXYzasGSIlTU/s+RSi7MvDbpyM2tNvUT6MpfPG4+BENbbyeF05UwWZNtebeFjXHjvA0UvuWhSnkooLPiKHEI4Lq4+1FuivvmIVPdTBoHhL+uQvTjJBBoxxONPU3w4cclyUSQrCSU61S6nUsFFQSyTMXabOAvQ7j3Jl3yahmvj+PTGbsMP+S4u3tpg0rUHkhD9rJKokQhp5hvxSnAJKndwQr7RyJIbCbQs/eZ77xi+/AIfYnp0tBb6VJhVh9TRxn8UvAtD/NwDuBbFJaz5fZvSywzL0FJLpzouQG9GzWf8YjmEVdvhzKGDv1VQcp862tMhd5iXwk6tmjUDG2tyzPrmmK3gPzDn29KMKAlSKJA37nVjPMtixxSfdZZGMczrxUN3NfNTGgndKcDIt+NdO1cu7xg8fkxeBvj/oXHbkoNXPeOQkuY94g5nferE2hom3HRYw1JihI1r2SY75POG/rroIv6BnOd4Zibb8nHwWYEQqgtr70yrkXAH0/kfhndQGk1tb5AxtxsOjSrkdahkFSdafZ8z29UoybkmrlHfjS5vR6E1vqe+Peof2BiiwaSzH0G0G+9RXd2iG9844XI4Nlhbv8zM2L1zhHmztF+6ONr/n1nYCnTkB4yeAKp0grNOzJaP8SC+7Rm8iJhj6rFPac1BiRZzj2Rcfq8InKu9j+6VzDShpvMkmonW5W6D6fG/cIe4SQviAZXFUl5KIy1XiJJh4AGueC/7VnFxbPtn63gnwKWaf5Mddm8K5Hvf7wxU+zKvhVn8L1Mm5bS/nPG9Frlhctc7HqkA39/JdqFz7yNQLM48Ems2TGuMVKBo7H5M34J/m8ibZ7vJmC6ft02bK1agbfWwSs0qAWZnc9jk2dRnhOcogN0ZOkAZFZq5Lr/nDmrZhJBAWhbp0zYdX0hT0eYhe0woDAYyLeI28PnPK8ZrUy9ZUyT+qsB0RgIVeGqO2r7wYXqQT8EogOBB3dvni1jdvpiGxORoLeAVGblGmdATL8xymZkVE9tayfKDsZpnXiQp9O4FpWR4s1lh9QQ7a3nrtAJ6Zy0iQYx0xIiV1e7CipnvOxOqcRtTzp7ythDbclAURVoAyp48EiUIftlq8a2YvFjppW4UQxFnBjGtHJYihj9MsRDTXPBOgZVzcE7J57gK9DsUN07ukxOlyhNs5Fu2jJBnuqJrgwNoiU77y4yOZirLpc5SBJm8lL72Y8FSR5D7xrDs+upXJ93+TH9RIRFqIj7BFilrMi1zSTLBFFXev7wW7TWfiYSFfATol0QAbw2mTOQ/JEZuKDgxLjgUPQ0DLPw0M4AD4T3BS2rHNMCsB9woj7cm/RytPPUQ6dLxLnn4FFaxNJSGfpGMbdAmSskTmajTQLbVdb3+ebGQbimgOsLULuXFOSoZgIf+frE6zybFcDptnKDgRHYbT3TMQHPqybqMuK9lugxr9QJc5E5Vzxbp8VxZ7n2Xgs5GkO0N8Gfzv0k22lStJmN9bOgXfW6dm/LKPuhYiFZhR1r2a8gZMaCl2Isw/Nu0qLduiEm7GJNCm9GAAunaSknwWy33jP3tJdizaL4wufYAWMRqGiLAvrsmvlO3lUHPD2Y+pTn0nzcZ++0sYAyauwnDGejUDCJUlND8vtysRe1giGv2x9fY9UtNq1L13JhlO/yRe35QXFd6hKe6Ab6IhjyUNH63ZrDIgnKhpjHPbqFFSDf7V0luPYHHmaMLtIXzzU=
+       properties :
+        x : 614
+        y : 4
+        width : 32
+        height : 32
+       type : 22
+       code_elements :
+        type_code : 57
+        alias : A12
+        p_codes :
+         -
+           type : 851999
+           role : N
+         -
+           type : 851998
+           role : N
+         -
+           type : 851984
+           enabled : false
+         -
+           type : 1310736
+           enabled : false
+         -
+           type : 852149
+           role : N
+           enabled : false
+         -
+           type : 852178
+           role : N
+           enabled : false
+         -
+           type : 852179
+           role : N
+           enabled : false
+         -
+           type : 852180
+           role : N
+           enabled : false
+    type : 90
+    code_elements :
+     type_code : 120
+     alias : A3
+     p_codes :
+      -
+        type : 852298
+        role : N
+      -
+        type : 851999
+        role : N
+      -
+        type : 852279
+        role : N
+      -
+        type : 852227
+        enabled : false
+      -
+        type : 1310979
+        enabled : false
+      -
+        type : 852228
+        role : N
+        enabled : false
+      -
+        type : 851998
+        role : N
+        enabled : false
+      -
+        type : 852005
+        role : N
+        enabled : false
+      -
+        type : 852217
+        role : N
+        enabled : false
+ type : 1
+ languages :
+  - fr-FR
+  - en-GB
+ code_elements :
+  internal_properties : CAAAAAgAAACSM1AT1VqNEu4PHug/uKf45ByUw5KENARqoauIpEweR0pRKynMcanOfuFeiyTghfk2Z8pEaFRQ1t7MzKgRlg==
+  type_code : 38
+  p_codes :
+   -
+     internal_properties : CAAAAAgAAAAzGvL8pzWa7ZHig1WuLlaL6oQ6YH09Fp1LCJLEQD8bxxA9kXnmXdMflJfEBXci6YZnI0lPihvYK7pb6+wFee/2Jnr85vXSlCaOTwlYgGDbYpxBYKTewsRTxg869spEF+luEmXtJxKCMbfpJ7yZfLYyyfCMTA4TMCDJRj5nQ3W8vw==
+     code : |1+
+      // Summary: <specify the action of the procedure>
+      // Syntaxe :
+      //PAGE_Secure_Payment_Paybox (<sParamTransactionID>, <sParamEMAIL>, <cyParamAMOUNT> [, <nRealModeTestOrSimulation>])
+      //
+      // Paramètres :
+      //	sParamTransactionID : Identifier of the transaction (order number for example)
+      //	sParamEMAIL : Email of the Web user who is going to pay
+      //	cyParamAMOUNT : Amount of the transaction in Euros
+      //	nRealModeTestOrSimulation (valeur par défaut=1) : boolean set to True to be in simulation mode and to False to be in real mode
+      // Example:
+      //	sIDOrder is string
+      //	sOrderID="Order_"+DateSys()+TimeSys()
+      //	PageDisplay(PAGE_Secure_Payment_Paybox,sIDOrder,EDT_EMAIL,EDT_AMOUNT,True)
+      //
+      // Return value:
+      procedure PAGE_Secure_Payment_Paybox(sParamTransactionID,sParamEMAIL,cyParamAMOUNT,nRealModeTestOrSimulation=TEST_MODE)
+      //Global variable to know if the application's server-to-server return code has been run
+      gbMyCodeReturnServerToServer is boolean = False
+      
+      
+      if InAWPMode() then DeclareAWPContext(gbMyCodeReturnServerToServer)
+      
+      if InTestMode() _and_ not ContextExist(Home) then
+      	Info([
+      [--TEST MODE--]
+      Caution, for the payments, the Web users are redirected to the bank site, a this time, WEBDEV detects the download of all pages found in the current project and stops the current test.
+      To avoid stopping the test, a tab with a loaded project page must be kept in the browser, to do so, the payment pages are called in test mode in another browser tab
+      ])
+      end
+      
+      if LoadInfoForExample("TOKEN")<>"" then
+      RADIO_SELECT_CARD.Visible=True
+      RADIO_SELECT_CARD=2
+      CBOX_REMEMBER.Visible=False
+      LINK_Delete_this_card.Visible=True
+      end
+      
+      //!!---------- Caution when used in an AWP page with cookies or AWP contexts ----------!!
+      // in case of a call in return from server to server, if you have cookies or AWP contexts (DeclareAWPContext), these values will not be re-read
+      // It is often used to find the customer basket in AWP etc.
+      // in case of a call in return from server to server, you must not return toward another page
+      // Example:
+      //	//Return to a login page if we are not identified AND if we are not in the case of a return from server to server
+      // IF NOT gbCustomerAccountOpened _AND_ NOT SET_SECUREPAYMENT.ReturnServerToServer() THEN
+      //			PageDisplay(PAGE_LOGIN)
+      // END
+      
+     type : 851968
+   -
+     code : |1+
+      
+      
+      //specify the values of controls
+      EDT_TRANSACTION_NUM=sParamTransactionID	
+      EDT_EMAIL=sParamEMAIL	
+      EDT_AMOUNT=cyParamAMOUNT
+      
+     type : 851996
+   -
+     type : 852300
+     enabled : false
+   -
+     type : 852017
+     enabled : false
+   -
+     type : 852119
+     enabled : false
+   -
+     type : 852298
+     role : N
+   -
+     code : |1-
+      
+     type : 851999
+     role : N
+   -
+     type : 852000
+     role : N
+   -
+     type : 852232
+     enabled : false
+   -
+     type : 852167
+     enabled : false
+   -
+     type : 852169
+     role : N
+     enabled : false
+   -
+     type : 852225
+     role : N
+     enabled : false
+   -
+     type : 852227
+     enabled : false
+   -
+     type : 1310979
+     enabled : false
+   -
+     type : 852228
+     role : N
+     enabled : false
+   -
+     code : |1+
+      
+      ChangeAction(caContinue)
+      
+     type : 851979
+   -
+     type : 852217
+     role : N
+     enabled : false
+  procedures :
+   -
+     name : LoadInfoForExample
+     procedure_id : 2220122733515856903
+     type_code : 14
+     code : |1-
+      // Summary: <specify the action of the procedure>
+      // Syntax:
+      //LoadInfoForExample (<sParameter> [, <sDefault>])
+      //
+      // Parameters:
+      //	sParameter: <specify the role of sParameter>
+      // 	sDefault (default value=""): < specify the role of sDefault >
+      // Return value:
+      // 	None
+      //
+      // Example:
+      // Indicate an example.
+      //
+      // 	sValue: <specify the role of sValue>
+      procedure LoadInfoForExample(sParameterName,sDefault="")
+      sValue is string
+      sValue=LoadParameter(sParameterName,sDefault)
+      
+      if sValue<>"" then
+      	sValue= DecryptStandard(Décode(sValue,encodeBASE64NoCR),HashString(HA_MD5_128, "password"), cryptAES256)
+      end
+      
+      return sValue
+     type : 458752
+   -
+     name : SaveInfoForExample
+     procedure_id : 2220122733515922439
+     type_code : 14
+     code : |1+
+      // Summary: <specify the action of the procedure>
+      // Syntax:
+      //SaveInfoForExample (<sParameter>, <sValue>)
+      //
+      // Parameters:
+      // 	sParameter: <specify the role of sParameter>
+      // 	sValue: <specify the role of sValue>
+      // Return value:
+      // 	None
+      //
+      // Example:
+      // Indicate an example.
+      //
+      procedure SaveInfoForExample(sParameterName,sValue)
+      if sValue~="" then
+      	DeleteParameter(sParameterName)
+      else
+      	SaveParameter(sParameterName,Encode(EncryptStandard(sValue,HashString(HA_MD5_128, "password"), cryptAES256),encodeBASE64NoCR))	
+      end
+     type : 458752
+   -
+     name : EndPayment
+     procedure_id : 2220122733515987975
+     type_code : 14
+     code : |1+
+      // Summary: Performs operations after the payment
+      // Syntax:
+      // EndPayment ()
+      //
+      // Parameters:
+      //	None
+      // Return value:
+      // 	None
+      //
+      // Example:
+      // Indicate an example.
+      //
+      procedure EndPayment(MyPayment)
+      
+      //	 It is possible to save all the incoming parameters in a file
+      //	 These parameters can be found in the associative array "SET_SECUREPAYMENT.IncomingParameters"	
+      
+      sListParameters is string
+      for each sParameterValue,sParameterName of COL_SECUREPAYMENT.IncomingParameters
+      sListParameters+=[CR]+sParameterName+"="+sParameterValue
+      end	
+      if InTestMode() then Trace(sListParameters)
+      //	 Example of return:
+      //			TRANSNUM=0014399511
+      //			CALLNUM=0032615226
+      //			NUMQUESTION=0000000050
+      //			SITE=1999888
+      //			RANG=63
+      //			AUTHORIZATION=XXXXXX
+      //			RESPONSECODE=00000
+      //			COMMENT=Request successfully processed
+      //			REFABONNE=C8_132465
+      //			PORTEUR=SLDLrcsLMPC
+      //			COUNTRY=US
+      
+      
+      switch TransactionStatus(EDT_TRANSACTION_NUM)
+      	case PAYMENT_VALID
+      	//	Update this order/invoice database
+      	//	Example: 		
+      	//	 ORDER.PaymentStatus=StatusPaid
+      	//	 ORDER.MemoParameterBankReturn+=[CR]+"- The "+DateToString(DateSys(),"MM/DD/YYYY")+" at "+TimeToString(TimeSys(),"HH:MM:SS.CC")+", return from server to server on acceptation of payment, incoming parameters: "+sListParameters
+      	//	
+      	//	....
+      	//	HModify(ORDER)
+      	
+      Info("Thank you for your payment")
+      
+      	case PAYMENT_REFUSED
+      Error("Payment refused",MyPayment:ErrorInfo)
+      			
+      	other case 
+      Error("Payment not made")
+      	
+      end
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : PAGE_Paiement_Securise_Paybox
+resources :
+ string_res :
+  identifier : 0x1ab8e9db00bcff86
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+  strings :
+   -
+     text :
+      en-GB : Wrong credit card number.
+      fr-FR : Le numéro de carte bancaire est incorrect.
+     index : 0
+webification :
+ internal_properties : CAAAAAgAAACYzxT95H3qP7nIys4LqA==
+custom_note :
+ internal_properties : CAAAAAgAAAC68/W0/adbG0nFCRhrE42B5HRnbDzVHaz86sSQyxlBk7I=
+rad :
+ internal_properties : CAAAAAgAAABoAN7PLpwJW3EiA7WVZdCA5EwrCA1rvutcDHooMWKe

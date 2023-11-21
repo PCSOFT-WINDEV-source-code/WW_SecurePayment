@@ -1,0 +1,1628 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : COL_SECUREPAYMENT
+ major_version : 28
+ minor_version : 0
+ type : 7
+ description : ""
+ subtype : 0
+procedure_set :
+ identifier : 0x1ecf75f70a34c1d5
+ internal_properties : CAAAAAgAAABGLu41kG7fjQV3iS4F72qmnKaNh5694reolNKIW0iw
+ code_elements :
+  type_code : 31
+  p_codes :
+   -
+     internal_properties : CAAAAAgAAABlbKQ0Ufy6g4XKty1ebvgbeEJUKjXTbpZr7KJoZHOXv3yBFS3q+T87dAt8IRMmFY4D5w3Lxm9sf4JnCyipPZtuQKyaEI9kArAY2RdKOt5RyGYLrhYYpKJNgIk44EQqNa84ZMM3OXyQu9YIVh041Q9X8qk/GSMCCwfWz4IrCb/qaQ==
+     code : |1-
+      // Public constants
+      public 
+      	global
+      		constant
+      			MoneticoPaiementOld		= 0x1000
+      			CMCIC	 				= 0x1000 //former name
+      			Atos	 				= 0x2000
+      			Lyra	 				= 0x4000
+      			Datatrans 				= 0x8000
+      			SIPS2	 				= 0x10000
+      			Realex	 				= 0x20000
+      			MoneticoPaiement		= 0x40000
+      			
+      			// Providers of secure payments
+      			PayBox 					= 0x0001
+      			
+      			CréditMutuelOld			= MoneticoPaiementOld + 0x0001
+      			CICOld					= MoneticoPaiementOld + 0x0002
+      			OBCOld					= MoneticoPaiementOld + 0x0004
+      
+      			CréditMutuel			= MoneticoPaiement + 0x0001
+      			CIC						= MoneticoPaiement + 0x0002
+      			OBC						= MoneticoPaiement + 0x0004
+      			
+      			CaisseEpargne			= 0x0002
+      			
+      			SociétéGénérale			= Atos	+ 0x0001
+      			CréditAgricole			= Atos	+ 0x0002
+      			LaBanquePostale			= Atos	+ 0x0004
+      			BNP						= Atos	+ 0x0008
+      			CreditLyonnais			= Atos	+ 0x0010
+      			CreditDuNord			= Atos	+ 0x0020
+      			
+      			BNP_SIPS2				= SIPS2	+ 0x0001
+      			SociétéGénérale_SIPS2	= SIPS2	+ 0x0002
+      			
+      			Systempay				= Lyra	+ 1
+      			Cyberplus				= Lyra	+ 2
+      			SPPLUS					= Lyra	+ 3
+      			Sogecommerce			= Lyra	+ 4
+      			DGFIP					= Lyra	+ 5
+      			PayZen					= Lyra	+ 6
+      			PayZenCréditDuNord		= Lyra	+ 7
+      			PayZenGermany			= Lyra	+ 8
+      			PayZenIndia				= Lyra	+ 9
+      			PayZenBrazil			= Lyra	+ 10
+      			PayZenLatAm				= Lyra	+ 11
+      			PayZenByOSB				= Lyra	+ 12
+      			EpayNC					= Lyra	+ 13
+      			Innopay					= Lyra	+ 14
+      			mPay24					= Lyra	+ 15
+      			BNPPIRB					= Lyra	+ 16
+      			PayZenDemo				= Lyra	+ 17
+      			
+      			
+      			PayPal					= 0x0004
+      			
+      			BanquePopulaire			= 0x0008			
+      			OgoneECommerce			= 0x0010
+      			
+      			Systempay_old			= 0x0020
+      			
+      			Saferpay				= 0x0040
+      			DataCash_Mastercard		= 0x0080 //(Hosted Checkout)
+      			
+      			// Status of transactions
+      			PAYMENT_WAIT		= 1
+      			PAYMENT_REFUSED			= 500
+      			PAYMENT_CANCELED		= 501
+      			PAYMENT_VALID			= 200
+      			PAYMENT_FORGED		= 999
+      			PAYMENT_AGREEMENT			= 2
+      					
+      			URL_S2S					= "ps_s2s"
+      			URL_CANCEL				= "ps_cancel"
+      			URL_REFUSED				= "ps_refused"
+      			URL_OK					= "ps_validated"				
+      			URL_RETURN				= "ps_return"	
+      			URL_RETURN3DS			= "ps_3DSreturn"	
+      			URL_S2S3DS				= "ps_s2s3DS"
+      			                    	
+      			REAL_MODE				= 0
+      			TEST_MODE				= 1
+      			SIMULATION_MODE			= 2
+      
+      			IDENTIFIER_PAYBOX_TEST = "2"
+      		end
+      
+      CardAction is enumeration
+      	CardDelete			=	1
+      	CreditCard			=	2
+      	DebitCard				=	3
+      	CardRefund			=	4
+      end
+      
+      		// Private global variables
+      global
+      	FormatPaymentSite is Enumération
+      		Computers				= "HTML"
+      		MobileDevices		= "XHTML"
+      		iMODE					= "IMODE"
+      		WAPFormat				= "WAP"	
+      	end
+      
+      IncomingParameters is ASSOCIATIVE ARRAY (WithoutDuplicates+ccIgnoreCase) of strings
+      	
+      gcntDataConnection 	is connection
+      gsDataDirectory	is string
+      gsSiteDirectories		is string
+      gsFilePassword		is string
+      gsNameParameterFile 	is string
+      gbDirectMode			is boolean
+      gsLastTypeReturn		is string
+      					
+      gcntDataConnection.Provider=hAccessHF7
+      	
+      	GetDatabaseParameter()
+     type : 720896
+   -
+     code : |1+
+      
+      
+      
+     type : 720898
+  procedures :
+   -
+     name : Payment_FromBank
+     internal_properties : CAAAAAgAAACm6X7eoSZQVwBFQzagMlNGmsZl2a8or+Dd92bWvB7hvdljJRj6quaRWpGJhDwvBG9MYSkLEzXHX4vvcIXS0pAD3rZolOP8rZO42x00ts6lVk2e2tmcOiLvoCZYgTVfnV9zkpL6u2/loU3ZNO0eZP8uANFP9uFgSj8GIDwUAduHNbC2
+     procedure_id : 2220122845205610965
+     type_code : 15
+     starred : true
+     group : 3
+     code : |1-
+      // Summary: Stars a secure payment procedure for payment via a bank website
+      // Syntaxe :
+      //[ <Résultat> = ] Payment_FromBank (<pclSecurePayment> est SecurePayment dynamique, <cyAmount> est monétaire, <sEmailAddress> est chaîne)
+      //
+      // Paramètres :
+      //	pclSecurePayment (SecurePayment dynamique) : Configuration of the secure payment
+      //	cyAmount (monétaire) : Amount of transaction
+      //	sEmailAddress (chaîne ANSI) : Email address of the customer
+      // Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      // Return value:
+      // 	boolean: True if the payment procedure was successfully run, False otherwise
+      // Automatic process of exceptions:   run CASE EXCEPTION:
+      procedure Payment_FromBank(pclSecurePayment is SecurePayment dynamic, local cyAmount is currency, local sEmailAddress is string) : boolean
+      
+      bReturn is boolean
+      	
+      	// Starts the payment procedure
+      bReturn = pclSecurePayment:Payment_FromBank(cyAmount, sEmailAddress)
+      	
+      return bReturn
+      
+      case exception:	
+      	return False
+     type : 458752
+   -
+     name : DataParameters
+     internal_properties : CAAAAAgAAACm6X7eoSZQVwBFQzagMlNGmsZl2a8or+Dd92bWvB7hvdljJRj6quaRWpGJhDwvBG9MYSkLEzXHX4vvcIXS0pAD3rZolOP8rZO42x00ts6lVk2e2tmcOiLvoCZYgTVfnV9zkpL6u2/loU3ZNO0eZP8uANFP9uFgSj8GIDwUAduHNbC2
+     procedure_id : 2220122845205676501
+     type_code : 15
+     code : |1-
+      // Summary: Configures the access to the component data
+      // Syntaxe :
+      //DataParameters (<sFolderData> est chaîne [, <sPassword> est chaîne [, <cntConnection> [, <sConnectionPassword> est chaîne]]])
+      //
+      // Paramètres :
+      //	sFolderData (chaîne ANSI) : Location of the component data
+      //	sPassword (chaîne ANSI - valeur par défaut="") : Password of the data files of the component
+      //	cntConnection (valeur par défaut=0) : HyperFileSQL connection
+      //	sConnectionPassword (chaîne ANSI - valeur par défaut="") : Password for the connection (if a connection exists and if a password exists)
+      // Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      // Return value:
+      //// Automatic process of exceptions:   run CASE EXCEPTION:
+      procedure DataParameters(local sFolderData is string, local sPassword is string = "", cntConnection = Null, local sConnectionPassword is string = "")
+      
+      	// Keeps the directory
+      gsDataDirectory	=sFolderData
+      
+      	// For the paths in Windows/Linux
+      gsDataDirectory	= fSeparator(gsDataDirectory, fSeparatorPlatform)
+      	
+      	if not fDirectoryExist(gsDataDirectory) then fMakeDir(gsDataDirectory)
+      	
+      	if gsNameParameterFile ~= "" then
+      gsNameParameterFile = gsDataDirectory + [fSep] + "Payment" + fSep + "SecurePayment.ini"
+      	else
+      gsNameParameterFile = gsDataDirectory + [fSep] + fExtractPath(gsNameParameterFile, fFileName + fExtension)
+      	end
+      	
+      gsFilePassword = sPassword
+      	
+      	// Keeps the connection
+      	if not MyParameters[3]..Default _and_ MyParameters[3] <> Null then 
+      gcntDataConnection.Provider 		= cntConnection..Provider
+      gcntDataConnection.Server 		= cntConnection..Server
+      gcntDataConnection.Database	= cntConnection..Database
+      gcntDataConnection.User 	= cntConnection..User
+      gcntDataConnection.Access 		= cntConnection..Access
+      		gcntDataConnection..Password 	= sConnectionPassword
+      	end
+      	
+      	//Closes the file in order for the changes to be taken into account
+      HClose(Transaction)
+      	
+      	// Idem for the connection
+      HCloseConnection(gcntDataConnection)
+      	
+      	// Connection
+      HChangeConnection(Transaction, gcntDataConnection)
+      	
+      	// Directory
+      HChangeDir(Transaction, gsDataDirectory)	
+      	
+      	// Password
+      HPass(Transaction, gsFilePassword)
+      	
+      	
+      	if not HModifyStructure(Transaction,hmsBackgroundTask) then
+      StringDisplay("<html>"+TextToHTML("Unable to update the structure of 'Transaction' table of secure payment component: "+CR+HErrorInfo())+"</html>",typeMimeXMLText)
+      		// Stop the site
+      EndProgram()	
+      	end
+      	
+      case exception:
+      StringDisplay("<html>"+TextToHTML("Unable to locate the table 'Transaction' of the secure payment component: "+CR+ExceptionInfo())+"</html>",typeMimeXMLText)
+      // Stop the site
+      EndProgram()	
+     type : 458752
+   -
+     name : PayBoxErrorInfo
+     procedure_id : 2220122845205742037
+     type_code : 15
+     code : |1-
+      // Summary: Returns the error caption corresponding to a PayBox error code
+      // Syntaxe :
+      //[ <Résultat> = ] PayBoxErrorInfo (<sErrorCode> est chaîne)
+      //
+      // Paramètres :
+      //	sErrorCode (chaîne ANSI) : PayBox error code (by default, the function tries to read the <error> parameter received in the URL of the page
+      
+      // Return value:
+      // 	string: Caption of the error code
+      procedure PayBoxErrorInfo(local sErrorCode is string )
+      
+      	switch sErrorCode
+      		case "00000" 	: return "Operation successful"			
+      		case "00001" 	: return "The connection to the authorization center failed"					
+      		case "00003"	: return "Internal PayBox error"			
+      		case "00004"	: return "Invalid bearer number or security number"			
+      		case "00006"	: return "Access refused or invalid site/rang/identifiant"			
+      		case "00008"	: return "The date of end of validity is incorrect"			
+      		case "00009"	: return "Error while creating a subscription"			
+      		case "00010"	: return "Unknown currency"			
+      		case "00011"	: return "Incorrect amount"			
+      		case "00015"	: return "Payment already performed"			
+      		case "00016"	: return "Subscriber already exists"			
+      		case "00021"	: return "Unauthorized card"			
+      		case "00029"	: return "Invalid card"			
+      		case "00030"	: return "Time-out exceeded"			
+      		case [= "001" : 
+      			return ErrorInfoBankCode(sErrorCode[[4 to]])			
+      		other case
+      			return StringBuild("Unknown error (%1)", sErrorCode)
+      	end	
+     type : 458752
+   -
+     name : ErrorInfoBankCode
+     procedure_id : 2220122845205807573
+     type_code : 15
+     code : |1-
+      // Summary: Returns the error caption corresponding to a bank error code
+      // Syntax:
+      //[ <Result> = ] ErrorInfoBankCode (<sBankErrorCode> is string)
+      //
+      // Parameters:
+      //	sBankErrorCode (string): Bank error code
+      // Return value:
+      // 	string: Caption of the error code
+      //
+      procedure private ErrorInfoBankCode(local sBankErrorCode is string)
+      
+      	switch sBankErrorCode
+      		case "00" : return "Transaction approved or successfully processed"
+      		case "02" : return "Contact the card issuer"
+      		case "03" : return "Invalid retailer"
+      		case "04" : return "Keep the card"
+      		case "05" : return "Don't process"
+      		case "07" : return "Keep the card, special conditions"
+      		case "08" : return "Approve after bearer identification"
+      		case "12" : return "Invalid transaction"
+      		case "13" : return "Invalid amount"
+      		case "14" : return "Invalid bearer number"
+      		case "15" : return "Unknown card issuer"
+      		case "17" : return "Customer cancelation"
+      		case "19" : return "Repeat the transaction later"
+      		case "20" : return "Wrong response (error in the server domain)"
+      		case "24" : return "File update not supported"
+      		case "25" : return "Unable to localize the record in the file"
+      		case "26" : return "Record duplicated, former record replaced"
+      		case "27" : return "Edit error on the control for file update"
+      		case "28" : return "Access to the file forbidden"
+      		case "29" : return "Unable to update the file"
+      		case "30" : return "Format error"
+      		case "38" : return "Number of attempts for confidential code exceeded"
+      		case "41" : return "Card lost"
+      		case "43" : return "Card stolen"
+      		case "51" : return "Insufficient funds or credit exceeded"
+      		case "54" : return "The date of validity is exceeded"
+      		case "55" : return "Wrong confidential code"
+      		case "56" : return "Card missing from the file"
+      		case "57" : return "Transaction not allowed to this bearer"
+      		case "58" : return "Transaction forbidden to the terminal"
+      		case "59" : return "Fraud suspicion"
+      		case "60" : return "The card acceptor must contact the buyer"
+      		case "61" : return "Exceeds the limit for withdrawal"
+      		case "63" : return "Security rules not respected"
+      		case "68" : return "Response not received or received too late"
+      		case "75" : return "Number of attempts for confidential code exceeded"
+      		case "76" : return "Bearer already in opposition, former record kept"
+      		case "90" : return "Temporarily stop of the system"
+      		case "91" : return "Card issuer not accessible"
+      		case "94" : return "Duplicated request"
+      		case "96" : return "Wrong operating mode of the system"
+      		case "97" : return "Failure of the timing for global monitoring"
+      		case "98" : return "Server not available, network routing requested again"
+      		case "99" : return "Initiator domain incident"
+      		other case
+      			return StringBuild("Unknown error (%1)", sBankErrorCode)
+      	end
+     type : 458752
+   -
+     name : TransactionStatus
+     procedure_id : 2220122845205873109
+     type_code : 15
+     code : |1-
+      // Summary: Returns the status of secure payment transaction
+      // Syntaxe :
+      //[ <Résultat> = ] TransactionStatus (<vOrderNumber> [, <sInformation> est chaîne [, <nTransactionID> est entier sur 8 octets [, <dtPaymentDate> est dateheure]]])
+      //
+      // Paramètres :
+      //	vOrderNumber : Order number
+      //	sInformation (chaîne ANSI - valeur par défaut="") : [output] String receiving information about the transaction status
+      //	nTransactionID (entier sur 8 octets - valeur par défaut=0) : [output] integer receiving the transaction identifier
+      //	dtPaymentDate (dateheure - valeur par défaut="") : [output] Date/Time of payment (if the payment is performed)
+      
+      // Return value:
+      // 	integer: Transaction status (PAYMENT_XXX constant) or -1 if an error occurred
+      procedure TransactionStatus(local vOrderNumber, sInformation is string = "", nTransactionID is 8-byte int = 0, dtPaymentDate is datetime = "") : int
+      
+      HReadSeekFirst(Transaction, OrderNumber, vOrderNumber)
+      	if HFound(Transaction) then
+      		
+      		// Retrieves the information
+      sInformation 	= Transaction.Information
+      nTransactionID 	= Transaction.TransactionID
+      dtPaymentDate	= Transaction.PaymentDate
+      		
+      		return Transaction.Status
+      	end
+      	
+      return -1
+     type : 458752
+   -
+     name : ATOSErrorInfo
+     procedure_id : 2220122845205938645
+     type_code : 15
+     code : |1-
+      // Summary: Returns the error caption corresponding to an ATOS error code
+      // Syntaxe :
+      //[ <Résultat> = ] ATOSErrorInfo (<sErrorCode> est chaîne)
+      //
+      // Paramètres :
+      //	sErrorCode (chaîne ANSI) : ATOS error code (by default, the function tries to read the <error> parameter received in the URL of the page
+      
+      // Return value:
+      // 	string: Caption of the error code
+      procedure ATOSErrorInfo(local sErrorCode is string )
+      
+      	switch sErrorCode[[to 2]]
+      		case "00" 	: return "Operation successful"			
+      		case "02" 	: return "The authorization limit on the card is exceeded"				+ CR + ErrorInfoBankCode(sErrorCode[[3 to]])					
+      		case "03"		: return "Invalid contract number or contract not found"			
+      		case "05"		: return "Authorization refused" 										+ CR + ErrorInfoBankCode(sErrorCode[[3 to]])
+      		case "12"		: return "Invalid transaction, incorrect parameters"			
+      		case "17"		: return "Transaction canceled by the Web user"			
+      		case "30"		: return "Format error"											+ CR + ErrorInfoBankCode(sErrorCode[[3 to]])
+      		case "34"		: return "Fraud suspicion"										+ CR + ErrorInfoBankCode(sErrorCode[[3 to]])
+      		case "75"		: return "The number of attempts for entering the card number is exceeded"	+ CR + ErrorInfoBankCode(sErrorCode[[3 to]])		
+      		case "90"		: return "Service temporarily unavailable"							+ CR + ErrorInfoBankCode(sErrorCode[[3 to]])
+      		other case
+      			return StringBuild("Unknown error (%1)", sErrorCode)
+      	end	
+     type : 458752
+   -
+     name : TypePaymentReturn
+     procedure_id : 2220122845206004181
+     type_code : 15
+     code : |1-
+      // Summary: Returns the return type
+      // Syntax:
+      //[ <Result> = ] TypePaymentReturn ()
+      //
+      // Parameters:
+      //	None
+      // Return value:
+      // 	Undefined type: URL_OK, URL_REFUSED, URL_CANCEL or empty string if no type of return was detected
+      //
+      procedure TypePaymentReturn()
+      
+      ListIncomingParameters()
+      
+      for each sParameterValue,sParameterName of IncomingParameters
+      	switch sParameterName
+      		case URL_OK
+      			return URL_OK
+      			
+      		case URL_REFUSED
+      			return URL_REFUSED
+      			
+      		case URL_CANCEL
+      			return URL_CANCEL
+      			
+      		other case	
+      			if gbDirectMode then
+      				return gsLastTypeReturn
+      			end
+      	end
+      end
+      //return type not found
+      STOP
+      	
+      return ""
+     type : 458752
+   -
+     name : GetPaymentObject
+     internal_properties : CAAAAAgAAABwFW15Hja7rgKSVwmsuMvcY9ajs/8oCYvYjsOt6Rb4UuAQeDJiHOuFZOWEIzIkEWkzdNhkithDRlKubB72JDp2/SSVQUokplLrAOKVGYq3fTQWC+a5TQgDon0LKFspezZWGUvmaIgwh6iR2rKF6gGMCy1YPEnl1dqG1Wmc98GHkv+dtF0lx/7HYqm2e77xxfhKd5DMvG34RAcsllLR/YdnCAz9ig==
+     procedure_id : 2220122845206069717
+     type_code : 15
+     code : |1-
+      // Summary: Retrieves the object of secure payment that was used to perform the transaction of a payment (useful for Cybermut, for the managing the "Return" interface)
+      // Syntax:
+      //[ <Result> = ] GetPaymentObject (<vOrderNumber> [, <sError>])
+      //
+      // Parameters:
+      //	vOrderNumber: Order number
+      //	sError (default value=""): Error message in case of failure
+      // Return value:
+      // 	Undefined type: SecurePayment object or Null if an error occurred
+      //
+      // Automatic process of exceptions:   run CASE EXCEPTION:
+      //
+      
+      procedure GetPaymentObject(local vOrderNumber, sError="")
+      
+      pclPayment is SecurePayment(0xFFFF)
+      bufObject_   is buffer		
+      sdReqTransaction is SQL Query = 
+      [
+      	SELECT TOP 1
+      		TransactionID,
+      		PaymentObject
+      	FROM 
+      		[Transaction]
+      	WHERE
+      		[Transaction].OrderNumber = {paramOrderNumber}
+      	ORDER BY
+      		[Transaction].TransactionID DESC	
+      ]
+      	//Last transaction with this order number
+      	sdReqTransaction.paramOrderNumber=vOrderNumber			
+      	if HExecuteQuery(sdReqTransaction) _and_ HReadFirst(sdReqTransaction) then		
+      		// Deserializes the object
+      bufObject_ = sdReqTransaction.PaymentObject
+      Deserialize(pclPayment, bufObject_, psdBinary)		
+      		//set position on the transaction in the Transaction file
+      HReadSeekFirst(Transaction,TransactionID,sdReqTransaction.TransactionID)
+      	else
+      sError = "Unable to find the order #<" + vOrderNumber + "> in the local database. "+HErrorInfo()		
+      		return Null
+      	end
+      	
+      return pclPayment
+      
+      case exception:
+      sError = "Failure retrieving the payment object of order #<" + vOrderNumber + ">. " + ExceptionInfo()
+      	return Null
+     type : 458752
+   -
+     name : PayPalErrorInfo
+     procedure_id : 2220122845206135253
+     type_code : 15
+     code : |1-
+      // Summary: Returns the error caption corresponding to a PayPal error code
+      // Syntaxe :
+      //[ <Résultat> = ] PayPalErrorInfo (<sErrorCode> est chaîne)
+      //
+      // Paramètres :
+      //	sErrorCode (chaîne ANSI) : PayPal error code (by default, the function tries to read the <error> parameter received in the URL of the page
+      
+      // Return value:
+      // 	string: Error message
+      procedure PayPalErrorInfo(local sErrorCode is string )
+      
+      	switch sErrorCode
+      		case "00000"	: return "Operation successful"
+      		case "10002"	: return "PayPal authentication problem"
+      		case "10006"	: return "Version not supported"
+      		case "10008"	: return "Security error (invalid header)"
+      		case "10101"	: return "Service not available"
+      		case "10102"	: return "Service not available"
+      		case "10432"	: return "Order number too long"
+      		case "10500"	: return "Incorrect merchant account"
+      		case "10501"	: return "Incorrect merchant account"
+      		case "10502"	: return "Credit card expired"
+      		case "10504"	: return "Incorrect CVV code"
+      		case "10505"	: return "Transaction interrupted"
+      		case [= "105"	: return "Transaction not possible"
+      		case [= "150"	: return "Transaction not possible"
+      		case [= "107"	: return "Transaction not possible (invalid customer data)"
+      		case [= "116"	: return "Fraud suspicion"
+      		case [= "118"	: return "Fraud suspicion"
+      		case "81251" 	: return "Internal error"			
+      		case "81002" 	: return "Method not supported"			
+      		case "81003" 	: return "Method not specified"			
+      		case "81004" 	: return "No query was received"			
+      		case [= "810" : return "Missing parameter"
+      		case [= "811" : return "Missing parameter"
+      		case [= "812" : return "Invalid parameter"
+      		other case
+      			return StringBuild("Unknown error (%1)", sErrorCode)
+      	end
+      	
+     type : 458752
+   -
+     name : OgoneErrorInfo
+     internal_properties : CAAAAAgAAABDQYOfs/rV4K1xA3rxhdPeCd0g8Vhfi3DsdxAqByRYOB56b3YocgdhK2/4pqLnlwOceQe8SW9YczbWjB5Hu7RpHejCaOz1YC5bMs50Z7d7575+Mwrb4/708xsAMnvjeM9aVXmTqh0RauWc0OFoBAo9q/J6vDAaJXc/F5IabXUVsyH8vWsyeGgpgOGABmdLfTOAvvHe6//II+191+dzeAKujffQ4SEKSQK0qyhFHSFBiJdi313BcZvfSoItsNL91JYPFCl/Ncj+jYSbU/9MWVVCIDaiHmCz5gPlLuFOOQCrwqCr0GeV+0w=
+     procedure_id : 2220122845206200789
+     type_code : 15
+     code : |1-
+      // Summary: Returns the error caption corresponding to an Ogone error code
+      // Syntaxe :
+      //[ <Résultat> = ] OgoneErrorInfo (<sErrorCode> est chaîne)
+      //
+      // Paramètres :
+      //	sErrorCode (chaîne ANSI) : Ogone error code (by default, the function tries to read the <error> parameter received in the URL of the page
+      
+      // Return value:
+      // 	string: Error caption
+      procedure OgoneErrorInfo(local sErrorCode is string )
+      
+      	switch Val(sErrorCode)
+      		case 0 		: return "Incomplete or invalid transaction"			
+      		case 1 		: return "Transaction canceled by the customer"			
+      		case 2 		: return "Authorization refused"			
+      		case 4 		: return "Encoded order"			
+      		case 41 		: return "Waiting for customer payment"			
+      		case 5 		: return "Authorized transaction"			
+      		case 51 		: return "Pending authorization"			
+      		case 52 		: return "Uncertain authorization"			
+      		case 55		: return "Suspended"			
+      		case 59 		: return "Authorization to be obtained manually"			
+      		case 6		: return "Authorized and canceled"			
+      		case 61 		: return "Pending cancelation of authorization"			
+      		case 62 		: return "Uncertain cancelation of authorization"			
+      		case 63 		: return "Refused cancelation of authorization"			
+      		case 64 		: return "Authorized and canceled"			
+      		case 7 		: return "Payment canceled"			
+      		case 71 		: return "Pending cancelation of payment"			
+      		case 72 		: return "Uncertain cancelation of payment"			
+      		case 73 		: return "Refused cancelation of payment"			
+      		case 74 		: return "Payment canceled"			
+      		case 75 		: return "Cancelation processed by the merchant"			
+      		case 8 		: return "Repayment"			
+      		case 81 		: return "Pending reimbursement"			
+      		case 82 		: return "Uncertain reimbursement"			
+      		case 83 		: return "Refused reimbursement"			
+      		case 84 		: return "Payment refused by the buyer"			
+      		case 85 		: return "Reimbursement processed by the merchant"			
+      		case 9 		: return "Payment requested"			
+      		case 91 		: return "Payment in progress"			
+      		case 92 		: return "Uncertain payment"			
+      		case 93 		: return "Payment refused"			
+      		case 94 		: return "Reimbursement refused by the buyer"			
+      		case 95 		: return "Payment processed by the merchant"			
+      		case 99 		: return "Currently processed"			
+      		other case
+      			return StringBuild("Unknown error (%1)", sErrorCode)
+      	end
+      	
+     type : 458752
+   -
+     name : TransactionReturnS2s
+     internal_properties : CAAAAAgAAADy1AK42k5ZGfv2+mDffg35nFZneDYlhWWpeoQ/t5deMkhnUZR2ua1z7x/I7FGebHY1zFwZX9hB4/KM26bJnHw2a/n1lQDZLG11ujDEFsW1O51PRnbF7Ng0b0ClEkmQnYto6oLYTJUQfGmQRMz9Pzt/SVon0EvoBmi2r5DR9lyd1eBfKIrY83UjYqPf2itBXCTnq2pj0w==
+     procedure_id : 2220122845206266325
+     type_code : 15
+     code : |1-
+      // Summary: Returns True if a return from server to server was performed for the transaction of secure payment
+      // Syntax:
+      //[ <Result> = ] TransactionReturnS2s (<vOrderNumber> [, <sInformation> is string])
+      //
+      // Parameters:
+      //	vOrderNumber: Order number
+      //	sInformation (string - default value=""): [output] String receiving information about the transaction status
+      // Return value:
+      // 	Boolean type: Transaction status (PAYMENT_XXX constant) or -1 if an error occurred
+      //
+      procedure TransactionReturnS2s(local vOrderNumber, sInformation is string = "")
+      
+      HReadSeekFirst(Transaction, OrderNumber, vOrderNumber)
+      	if HFound(Transaction) then
+      		
+      		// Retrieves the information
+      sInformation = Transaction.Information
+      		
+      		return Transaction.ReturnS2S
+      	end
+      	
+      return False
+     type : 458752
+   -
+     name : PaymentEnd
+     internal_properties : CAAAAAgAAACOKepM2vIisUgIV1HWhOse+caeepaxDZYK3ORBMdoqi3yZO1qZhNDpAloWDdaiFWrIcDRlNkIBw6QwQT58KGyRAzTqAsSeExJqYv62QMn6YQLfxaH5ArfUUD3Y0neQAqunbg2fQEUJQnRHxeaPb5J/6L5EJeN0f6Sv5LOP9ASkmRnrE2ESrRQB75x+htvfGvKAGCPaNV4=
+     procedure_id : 2220122845206331861
+     type_code : 15
+     starred : true
+     group : 5
+     code : |1-
+      // Summary: For PayPal: Ends a payment for which an agreement was received
+      // Syntax:
+      //[ <Result> = ] PaymentEnd (<vOrderNumber>, <sError> is ANSI string, <sInformation> is ANSI string, <sTRSID> is ANSI string)
+      //
+      // Parameters:
+      //	vOrderNumber: Number of the order to validate
+      //	sError (ANSI string): Information in case of failure/refusal
+      //	sInformation (ANSI string): Additional information (whether the payment was performed or not)
+      //	sTRSID (ANSI string): (output) Identifier of the PayPal transaction
+      // Return value:
+      // 	boolean:   True if the payment was accepted, False otherwise
+      /// Example:
+      //	sError is string
+      //	sInformation is string
+      //	sTRSID is string
+      //
+      //	//starts the effective validation of the payment agreed by PayPal
+      //	IF NOT PaymentEnd(EDT_TRANSACTION_NUM,sError,sInformation,sTRSID) THEN
+      //		//The payment was not accepted
+      //		Error("Despite the pre-agreement of PayPal, the payment was refused: ",sError+[CR]+sInformation)
+      //	ELSE
+      //		//Payment successfully validated
+      //		//We should redirect to a page used to edit the ticket, the invoice, etc.
+      //		Info("The payment was successfully performed")
+      //	END
+      //
+      procedure PaymentEnd(local vOrderNumber, sError is string, sInformation is string, sTRSID is string)
+      
+      nMode 		is int
+      clPayment 	is SecurePayment <- GetPaymentObject(vOrderNumber, sError)	
+      	
+      	if clPayment <> Null then		
+      		// Transaction retrieves (and we are positioned on the file record)
+      		return clPayment:OnPaymentReturnPayPal(nMode, sInformation, sError, clPayment.Amount, sTRSID) 		
+      	else	
+      		return False
+      	end
+     type : 458752
+   -
+     name : ListIncomingParameters
+     internal_properties : CAAAAAgAAABouuwGvfStK2UWmm5pLjHdoiKxUCCDqW+3ZvQ1mYeGIg4bMzS07/lZJXukWrOaiFrn9Nql4VbF1XgI5wh3rJy+fYGPXbJ7DC8b7r11nbAAAuIKaXvYd31JuKmmC2hTUEq5xU2ByzShjSadhRXcega2fpH+/e5ja9U7NA1STYeoXHl+P+fT3tqEm8zYQ6LcM49VGdj1TQ==
+     procedure_id : 2220122845206397397
+     type_code : 15
+     code : |1-
+      // Summary: returns the list of incoming parameters (GET and POST for an AWP page) in string format AND in a global associative array (gaaIncomingParameters)
+      // Syntax:
+      //[ <Result> = ] ListIncomingParameters ( [<sSeparator> is string [, <paramParametersReceived>]])
+      //
+      // Parameters:
+      //	sSeparator (ANSI string - default value="&"): Character used to separate the parameters in the returned string
+      //	paramParametersReceived: <specify the role of paramParametersReceived>
+      // Return value:
+      // 	ANSI string: List of parameters, for example: PARAM1=Value&Param1=othervalue....
+      //
+      //Example:
+      //	Update the parameters received in SET_SECUREPAYMENT.amount
+      //	SET_SECUREPAYMENT.ListIncomingParameters()
+      //	//Retrieve a parameter, the amount 
+      //	Trace("Amount of payment in cents: "+SET_SECUREPAYMENT.IncomingParameters["amount"])
+      //	//Or list of all parameters:
+      //	Trace("List of incoming parameters:")
+      //	//Or list of all parameters:
+      //	FOR EACH sParameterValue,sParameterName of SET_SECUREPAYMENT.IncomingParameters
+      //		Trace(sParameterName+"="+sParameterValue)
+      //	END
+      //
+      procedure ListIncomingParameters(local sSeparator is string = "&",paramParametersReceived  =[])
+      
+      nParameterSubscript 	is int = 1
+      sAParameter 		is string
+      sListParameters	is string
+      sParameterName		is string
+      sParameterValue	is string
+      nEqualPosition 		is int
+      	
+      	// Reset the following parameters
+      ArrayDeleteAll(IncomingParameters)
+      		
+      	//Loop on the incoming parameters
+      	loop
+      		
+      sAParameter = PageParameter(nParameterSubscript)	
+      		
+      		// Other parameters?
+      		if sAParameter ~= "" then break 
+      		
+      		// Finds the = that separates the name of the parameter from its value
+      nEqualPosition = Position(sAParameter, "=")
+      		
+      		// Name
+      sParameterName = sAParameter[[to (nEqualPosition - 1)]]
+      		
+      		// Value
+      sParameterValue = sAParameter[[(nEqualPosition + 1) to]]
+      		
+      		// Add into the array
+      		IncomingParameters[sParameterName] = sParameterValue
+      		
+      		// Result string
+      sListParameters += [sSeparator] + sAParameter
+      		
+      		// Next
+      nParameterSubscript++
+      	end
+      
+      when exception in 
+      	if not paramParametersReceived..Default then
+      		ArrayCopy(IncomingParameters,paramParametersReceived)
+      	end	
+      do
+      	STOP
+      end
+      
+      return sListParameters
+     type : 458752
+   -
+     name : TransactionStatusAccordingToID
+     internal_properties : CAAAAAgAAAC1h89gMQAL5o1vWyfNPCzQ16xE5KLCsgEW3EaJqW6KpqH/A/bBsiNicUuSXgTQAc58rgYqBV0NQ2Q+HWNF4wHoXVI8CtDEQ5RDiwAQR6DBWecq50gKEdsZbEiSQ9cuE5v0mcB77vMOmbQwJwtDE5vf5em1GwNq2O/zMQkerLbPp7+AsDINjy5kIRYGb1JCCVuWmOt3BNVSWC7s4ZboQ3es/3HJwgicus1RRipJ9yjEp3WKpg==
+     procedure_id : 2220122845206462933
+     type_code : 15
+     code : |1-
+      // Summary: Returns the status of secure payment transaction
+      // Syntax:
+      //[ <Result> = ] TransactionStatusAccordingToID (<nIdTransaction> is int, <vOrderNumber> [, <sInformation> is ANSI string [, <dtPaymentDate> is datetime]])
+      //
+      // Parameters:
+      //	nTransactionID (integer): [output] integer of the identifier of the sought transaction
+      //	vOrderNumber: [output] Order number
+      //	sInformation (ANSI string - default value=""): [output] String receiving information about the transaction status
+      //	dtPaymentDate (datetime - default value=""): [output] Date/Time of payment (if the payment is performed)
+      // Return value:
+      // 	Undefined type: Transaction status (PAYMENT_XXX constant) or -1 if an error occurred
+      //
+      procedure TransactionStatusAccordingToID(local nTransactionID is int, local vOrderNumber, sInformation is string = "", dtPaymentDate is datetime = "")
+      
+      HReadSeekFirst(Transaction, TransactionID, nTransactionID)
+      	if HFound(Transaction) then
+      		
+      		// Retrieves the information
+      sInformation 	= Transaction.Information
+      vOrderNumber = Transaction.OrderNumber
+      dtPaymentDate	= Transaction.PaymentDate
+      		
+      		return Transaction.Status
+      	end
+      	
+      return -1
+     type : 458752
+   -
+     name : DisplayStringInHTML
+     procedure_id : 2220122845206528469
+     type_code : 15
+     code : |1-
+      // Summary: Displaying the text string in HTML
+      // Syntax:
+      //DisplayStringInHTML (<sText> is ANSI string)
+      //
+      // Parameters:
+      //	sText (ANSI string): text string to display
+      // Return value:
+      // 	None
+      
+      procedure DisplayStringInHTML(local sText is string)
+      
+      StringDisplay("<HTML>" + ConvertTextToTML(sText) + "</HTML>", typeMimeHTML)
+     type : 458752
+   -
+     name : ConvertTextToTML
+     internal_properties : CAAAAAgAAABKpVYgG85r6SR0m7lGWAPaleLOIjZVETb+wACZyV6yN4Adq7pJONTp7paC7e6WNQ5s3Lz1tg6105gULa4k5Aw9twj6ImxKb2oGXupoStv0Z3RJJ8+7nCE+yueCfLFSrJEhgBedYhfD/A6pd8jJQUy12piuG7WeeZ5Rji3ZvlY253NNdefEx/ZTCWaIcNXRlC3P5Hd2qSI=
+     procedure_id : 2220122845206594005
+     type_code : 15
+     code : |1+
+      // Summary: Convert a text into HTML (even in Linux)
+      // Syntax:
+      //[ <Result> = ] ConvertTextIntoTML (<sRoughText>)
+      //
+      // Parameters:
+      //	sRoughText: rough text to convert
+      // Return value:
+      // 	ANSI string: //html text
+      //
+      procedure ConvertTextToTML(sPlainText)
+      
+      return Replace(TextToHTML(StringToUTF8(sPlainText), charsetUTF8),"&nbsp;"," ")
+      
+     type : 458752
+   -
+     name : ConvertHTMLToText
+     procedure_id : 2220122845206659541
+     type_code : 15
+     code : |1+
+      // Summary: Convert HTML into text (even in Linux)
+      // Syntax:
+      //[ <Result> = ] ConvertHTMLIntoText (<sHTMLText>)
+      //
+      // Parameters:
+      //	sHTMLText: HTML text
+      // Return value:
+      // 	ANSI string: // rough text
+      //
+      procedure ConvertHTMLToText(local sHTMLText)
+      
+      return HTMLToText(sHTMLText)
+      
+      
+     type : 458752
+   -
+     name : ReturnServerToServer
+     procedure_id : 2220122845206725077
+     type_code : 15
+     code : |1-
+      // Summary: Returns True if it is an action such as a return from server to server
+      // Syntaxe :
+      //[ <Résultat> = ] ReturnServerToServer ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Example:
+      //	//Return to a login page if we are not identified AND if we are not in the case of a return from server to server
+      //	IF NOT gbCustomerAccountOpened _AND_ NOT SET_SECUREPAYMENT.ReturnServerToServer() THEN
+      //			PageDisplay(PAGE_LOGIN)
+      // END
+      // Return value:
+      // 	boolean: True if it is an action such as a return from server to server
+      procedure ReturnServerToServer()
+      <compile if TypeConfiguration=Site or TypeConfiguration=ComposantExterne>	
+      	return PageParameter(SecurePayment.PARAM_RETURNS2S) = "1"
+      <else>
+      	return False
+      <end>
+     type : 458752
+   -
+     name : StartAdvancedApp
+     internal_properties : CAAAAAgAAABnUqLc4g4QBiPw/gszciY97AXi9Jufgx/3IZLFfI7eCqmLHBH76jrqwBg+ryEkQ5pICrj46dzh9kc+qGhMvdgvSIYX81btCUw8HWAVnBs1BUoVT0Nl7B1QWtZOqXmKQ0qykHErR7olKxLKvsUs3OpmtCfLIP+vCKXCsGkcL98OWKY814BekQF4NbLiuUXkYoInkY+k4CGiGaA4b6mAPsm5AquK8HChkZlhwiUtksSF3BA7l10IWsyeUbGTpUK/TUkRYX8OoVjbyUwhaDKAeUGIRTSf2xkMNE2bs5F7ToygLmwjSy6ImjOjAQWegRgZmcxccms3m2KAPfo+sls8mii5kjXtTIMPsULWGBf+ERdFF8jgNssnOoWv4beOol23CQCDvcHEeCWnJnRLsap/TO+2XcFrRDG/n2y0XUNtbPWBMd62FR6+aZ+kLxjQL2AuKA/Sxt/gCY5lPiZDNoGrN+D0P5HqIvSlAF9PaRFyyp7czKmngumF/kpgvJiuNd/1L2QWEU23lu9U3wvyEXhaX0OLUvFAEVTzqsTfOT1EUE5gYOIrwbs5RIYGSEHSXjAMwGYOgWgb
+     procedure_id : 2220122845206790613
+     type_code : 15
+     code : |1+
+      // Summary: Starts another application with ability to retrieve the STDOUT stream and to use a specific user
+      // Syntax:
+      //[ <Result> = ] StartAdvancedApp (<sParamFullApplicationName> is string [, <nMode> [, <sWorkingDirectory> is string [, <bufStdOut> is buffer [, <sUserParam> is string [, <sPasswordParam> is string]]]]])
+      //
+      // Parameters:
+      //	sParamFullApplicationName (ANSI string): Full application name
+      //	nMode (default value=1): Mode for running the executable, exeActive by default
+      //	sWorkingDirectory (ANSI string - default value=""): working directory
+      //	bufStdOut (ANSI string - default value=""): Buffer variable  in output: STDout of the application run
+      //	sUserParam (ANSI string - default value=""): User. To specify a domain name, use the following format: user@domain
+      //	sPaswordParam (ANSI string - default value=""): Password
+      // Return value:
+      // 	Undefined type: True if the application was started, False otherwise
+      //
+      // Example:
+      //		//STart a setup with the account of the network administrator
+      //		bufStdout is buffer
+      //		IF NOT StartAdvancedApp("C:\Program Files\...\otherapplication.exe",*,*,bufStdout,"admin@domain.com","adminpassword") THEN
+      //			Error()
+      //		ELSE
+      //			Info("Result returned by the application: ",bufStdout)
+      //		END
+      procedure StartAdvancedApp(local sParamFullApplicationName is string,local nMode=exeActive ,local sWorkingDirectory is string="",bufStdOut is string="", local sUserParam  is string="",local sParamPassword  is string="")
+      bGetSTDout 		is boolean
+      bChangeUser 		is boolean
+      
+      //do we have to retrieve the stdout?
+      bGetSTDout= not bufStdOut..Default 
+      //Do we have to change the user?
+      bChangeUser= not (sUserParam~= "")
+      
+      //If nothing specific, use the language function	
+      if (not bGetSTDout _and_ not bChangeUser) _or_ not InWindowsMode() then
+      	if sWorkingDirectory<>"" then
+      		return ExeRun(sParamFullApplicationName,nMode,exeWait,sWorkingDirectory)
+      	else
+      		return ExeRun(sParamFullApplicationName,nMode,exeWait)
+      	end	
+      end
+      
+      
+      //structures required by the funciotns of the API called
+      STARTUPINFO is Structure
+      cb 					is system int 
+      lpReserved 			is system int 
+      lpDesktop 			is system int 
+      lpTitle 			is system int 
+      dwX 				is int  
+      dwY 				is int  
+      dwXSize 			is int  
+      dwYSize 			is int  
+      dwXCountChars 		is int  
+      dwYCountChars 		is int  
+      dwFillAttribute 	is int  
+      dwFlags 			is int  
+      wShowWindow 		is system int 
+      lpReserved2 		is system int 
+      hStdInput 			is system int 
+      hStdOutput		 	is system int 
+      hStdError 			is system int 
+      end
+      
+      PROCESS_INFORMATION is Structure
+      hProcess 			is system int 
+      hThread 			is system int 
+      dwProcessId 		is system int 
+      dwThreadId 			is system int 
+      end
+      
+      SECURITY_ATTRIBUTES is Structure
+      nLength 				is system int
+      lpSecurityDescriptor 	is system int 
+      bInheritHandle 			is system int 
+      end
+      
+      LOGON_WITH_PROFILE 				is int  = 0x00000001
+      CREATE_DEFAULT_ERROR_MODE 		is int  = 0x04000000 
+      HANDLE_FLAG_INHERIT				is int  =1
+      STARTF_USESTDHANDLES			is int  =256
+      STARTF_USESHOWWINDOW			is int  =1
+      sApplicationUNCPath			is string
+      
+      //User of the process to start
+      sUser 					is string UNICODE
+      //password of the user
+      sPassword 					is string UNICODE
+      //Creation flag
+      nLogonflag 						is int =LOGON_WITH_PROFILE
+      //Application to run
+      sApplicationName 				is string UNICODE=""
+      sStartupDirectory 			is string UNICODE=""
+      sCommandLine		 			is string UNICODE=""
+      
+      nHandleStdOut_Read 	is system int= Null
+      nHandleStdOut_Write 	is system int= Null	
+      nHandleStdIn_Read	is system int= Null	
+      nHandleStdIn_Write 	is system int= Null
+      
+      nInstanceDLL is system int = Null
+      
+      //Creation flag
+      nCreationFlag is int =CREATE_DEFAULT_ERROR_MODE
+      
+      //Initialize the "Startupinfo" structure
+      lpStartupInfo is STARTUPINFO
+      lpStartupInfo:cb=Dimension(lpStartupInfo)
+      
+      lpStartupInfo.dwFlags=STARTF_USESHOWWINDOW
+      
+      //do we have to retrieve the stdout?
+      if bGetSTDout then
+      	//yes
+      	
+      	//prepare the structure regarding the security information
+      	lpSecurityAttributes is SECURITY_ATTRIBUTES	
+      	//Dimension of the structure
+      	lpSecurityAttributes.nLength=Dimension(lpSecurityAttributes)
+      	//Inheritance
+      	lpSecurityAttributes.bInheritHandle=True	
+      	//no additional information about the security
+      	lpSecurityAttributes.lpSecurityDescriptor=Null
+      	
+      	//Different necessary handles 
+      	
+      	//Create a pipe on STDout
+      	if not API("KERNEL32","CreatePipe",&nHandleStdOut_Read,&nHandleStdOut_Write,&lpSecurityAttributes,0) then
+      ErrorPropagate
+      		return False
+      	end
+      	//check the inheritance property of the parent on this handle
+      	if not API("KERNEL32","SetHandleInformation",nHandleStdOut_Read, HANDLE_FLAG_INHERIT, 0) then
+      ErrorPropagate
+      		return False
+      	end
+      	//Create a pipe on STDIn
+      	if not API("KERNEL32","CreatePipe",&nHandleStdIn_Read,&nHandleStdIn_Write,&lpSecurityAttributes,0) then
+      ErrorPropagate
+      		return False
+      	end
+      	//check the inheritance property of the parent on this handle
+      	if not API("KERNEL32","SetHandleInformation",nHandleStdIn_Write, HANDLE_FLAG_INHERIT, 0) then
+      ErrorPropagate
+      		return False
+      	end	
+      	
+      	//Assigns the members of the structure that is used to specify the stdOut when the executable is run
+      	//The handles of the different STD
+      	lpStartupInfo.hStdError=nHandleStdOut_Write
+      	lpStartupInfo.hStdInput=nHandleStdIn_Read
+      	lpStartupInfo.hStdOutput=nHandleStdOut_Write	
+      	lpStartupInfo.dwFlags+=STARTF_USESTDHANDLES	
+      	
+      end
+      
+      switch nMode	
+      	case exeMaximize
+      		lpStartupInfo.wShowWindow=3//SW_SHOWMAXIMIZED
+      	case exeIconize
+      		lpStartupInfo.wShowWindow=2//SW_SHOWMINIMIZED	
+      	case exeInactive
+      		lpStartupInfo.wShowWindow=4//SW_SHOWNOACTIVATE
+      	other case //among which exeActive				
+      		lpStartupInfo.wShowWindow=1//SW_SHOWNORMAL		
+      end
+      
+      
+      lpProcessInfo is PROCESS_INFORMATION
+      
+      //the name of the application such as
+      sApplicationUNCPath=sParamFullApplicationName
+      
+      
+      <if CibleExécution=ApplicationWindows or CibleExécution=SiteWindows or CibleExécution=WebserviceWindows or CibleExécution=ServiceWindows>
+      	//---------- In Windows
+      	if InWindowsMode() then
+      		//In case of network path, the UNC path is required (instead of the drive letter)
+      		//Network path with drive letter?
+      		if sParamFullApplicationName[[2]]=":" then
+      			//it seems that yes (or local path!)
+      sApplicationUNCPath=NetworkDirName(sParamFullApplicationName[[to 2]])	
+      			//UNC path retrieved
+      			if sApplicationUNCPath~="" then
+      				//no, take the source name
+      sApplicationUNCPath=sParamFullApplicationName
+      			else
+      				//Yes
+      				//add the end of the path
+      sApplicationUNCPath+=["\"]+sParamFullApplicationName[[4 to]]
+      			end
+      		end
+      	end
+      	//----------
+      <end>
+      
+      
+      //retrieve the application to start in Unicode
+      sApplicationName=AnsiToUnicode(sParamFullApplicationName)		
+      //remove the command line to get the name of the executable
+      //Application without command line		
+      sExecutableNameOnly 	is string
+      nStartPosQuote,nEndPosQuote,nSpacePos is int		
+      //quote?
+      nStartPosQuote=PositionOccurrence(sApplicationUNCPath,"""",1)		
+      nEndPosQuote=PositionOccurrence(sApplicationUNCPath,"""",2)		
+      nSpacePos=Position(sApplicationUNCPath," ",1)
+      //quotes ande no space before the first quote?
+      if nEndPosQuote=1 _and_ not (nSpacePos>0 _and_ nSpacePos<nStartPosQuote) then
+      sExecutableNameOnly=sApplicationUNCPath[[to nEndPosQuote]]	
+      else
+      	//space?
+      	if nSpacePos>0 then
+      sExecutableNameOnly=sApplicationUNCPath[[to (nSpacePos-1)]]	
+      	else
+      sExecutableNameOnly=sApplicationUNCPath
+      	end
+      end
+      //retrieve the startup directory in Unicode
+      if sWorkingDirectory<>"" then
+      sStartupDirectory=AnsiToUnicode(sWorkingDirectory)
+      else
+      sStartupDirectory=AnsiToUnicode(fExtractPath(sExecutableNameOnly,fDrive+fDirectory))
+      end
+      
+      
+      bProcessStartup is boolean
+      
+      //With another user?
+      if bChangeUser then
+      	//Yes
+      	//Load the DLL
+      
+      nInstanceDLL=LoadDLL("Advapi32") 
+      	//Loading OK?
+      	if nInstanceDLL=0 then
+      		//load problem	
+      ErrorPropagate
+      		return False
+      	else
+      		//Retrieve the user in Unicode
+      sUser=AnsiToUnicode(sUserParam)
+      		//Retrieve the password in Unicode
+      sPassword=AnsiToUnicode(sParamPassword)	
+      		
+      		//command line (found after the name of the executable, if any)
+      		if sExecutableNameOnly<>sApplicationUNCPath then
+      sCommandLine=AnsiToUnicode(sApplicationUNCPath[[(Length(sExecutableNameOnly)+1) to]])			
+      sApplicationName=AnsiToUnicode(sExecutableNameOnly)	
+      		end		
+      		
+      		// Call the CreateProcessWithLogonW function
+      bProcessStartup=API("Advapi32","CreateProcessWithLogonW",sUser,... //User
+      		Null,... //domain (null because user in the following format: user@domain)
+      sPassword,...
+      nLogonflag,...//login flag
+      sApplicationName	,...//application to run
+      sCommandLine,... //order line
+      nCreationFlag,... //creation flag
+      		Null,... //environment
+      sStartupDirectory,... //startup directory
+      		&lpStartupInfo,... 
+      		&lpProcessInfo)
+      	end
+      else
+      bProcessStartup=API("KERNEL32","CreateProcessW",Null, 
+      sApplicationName,... //application to run
+      	Null,          
+      	Null,          
+      True,          //Inheritance
+      nCreationFlag,... //creation flag
+      	Null,... //environment
+      sStartupDirectory,... //startup directory
+      	&lpStartupInfo,... 
+      	&lpProcessInfo)		
+      end
+      //Startup OK?
+      if not bProcessStartup then
+      	//The call failed, return the error
+      ErrorPropagate()
+      	return False
+      else
+      	//Call OK
+      	//do we have to retrieve the STDout?
+      	if bGetSTDout then
+      		//Yes, read the stdOut
+      		nNumberOfBytesToRead is int=1024 //read by block
+      		buffPartSTDIn is string=RepeatString(" ",nNumberOfBytesToRead)				
+      		nNumberOfBytesRead is int
+      bufStdOut=""
+      		loop
+      			if API("KERNEL32","ReadFile",nHandleStdOut_Read,&buffPartSTDIn,nNumberOfBytesToRead,&nNumberOfBytesRead,Null) then				
+      				//add what was read or buffer 
+      bufStdOut+=buffPartSTDIn[[to nNumberOfBytesRead]]					
+      			else
+      				break //nothing else to read
+      			end
+      		to do while nNumberOfBytesRead>=nNumberOfBytesToRead			
+      	end		
+      	//Execution OK
+      	return True
+      end	
+      
+      //In any case at the end:
+      end:
+      //closing the handles
+      if nHandleStdIn_Read<>Null then API("KERNEL32","CloseHandle",nHandleStdIn_Read)
+      if nHandleStdIn_Read<>Null then API("KERNEL32","CloseHandle",nHandleStdIn_Read)
+      if nHandleStdOut_Write<>Null then API("KERNEL32","CloseHandle",nHandleStdOut_Write)
+      if nHandleStdIn_Write<>Null then API("KERNEL32","CloseHandle",nHandleStdIn_Write)
+      if nHandleStdOut_Read<>Null then API("KERNEL32","CloseHandle",nHandleStdOut_Read)
+      if nInstanceDLL<>Null then FreeDLL(nInstanceDLL)
+     type : 458752
+   -
+     name : GetDatabaseParameter
+     internal_properties : CAAAAAgAAAC8B/he3QgSaQaGOw0KyjtOCyAs/OoPob6cFnj1Hbgal+IvgbS5fgTtrNSGPfb0QSpmXj57NgSZc/byuVY04gQlBU5QPEBEO8aEDO4h6SZlFrvAoJ6y53QDkf6pEQzpCWwY/5Ak2QrWgbXYZuWsYGkINQMP4ijdeI9YRaT2FRn3Lmao2hJ/PqUQ5IFD6cysfU+RJjHMR0w=
+     procedure_id : 2220122845206856149
+     type_code : 15
+     code : |1-
+      // Summary: Retrieves the information for accessing the database of payments
+      // Syntax:
+      //GetDatabaseParameter ([<sSiteName> is string [, <bTestOnly> is boolean]])
+      //
+      // Parameters:
+      //	sSiteName (string): Name of the site (site currently deployed by default)
+      //	bTestOnly (boolean - default value=0): True to run the test without forcing the path
+      // Return value:
+      // 	None
+      //
+      procedure GetDatabaseParameter(sSiteName is string=ProjectInfo(piNameDeployedSite),bTestOnly is boolean=False)
+      
+      local	
+      	// Defines the default connection
+      	//find the data directory, equivalent to fDataDir() but to have it in the AWP pages as well....
+      sTraceInfo				is string 
+      	
+      	//Read the 32-bit registry branch in 64 bits
+      	//The size of system integers depends on the runtime mode (32/64 bits)
+      nSystemInt is system int
+      	//By multiplying this size by 8, the number of bytes in a system integer
+      //we have the number of bits of the runtime mode!
+      nSystemInt=(Dimension(nSystemInt)*8)
+      sCallingDataDir is string
+      
+      sNameWDConfigFile is string
+      sNameWDConfigFile=ExtractString(fExtractPath(SysEnvironment("PATH_TRANSLATED"),fDrive+fDirectory),2,"=")+[fSep]+".WDConfig.awp"
+      
+      if fFileExist(sNameWDConfigFile)
+      sTraceInfo+=[CR]+sNameWDConfigFile+" : "+fLoadText(sNameWDConfigFile)
+      else
+      sTraceInfo+=[CR]+sNameWDConfigFile+": not found"
+      end
+      
+      when exception in
+      sTraceInfo+=[CR]+"PageParameter(""site""): "+PageParameter("site")
+      sTraceInfo+=[CR]+"PATH_INFO: "+SysEnvironment("PATH_INFO")
+      sTraceInfo+=[CR]+"ProjectInfo(piNameDeployedSite): "+ProjectInfo(piNameDeployedSite)
+      sTraceInfo+=[CR]+"ProjectInfo(piProjectName): "+ProjectInfo(piProjectName)
+      sTraceInfo+=[CR]+"Site: "+sSiteName	
+      do
+      sTraceInfo+=[CR]+"Test site:"+ProjectInfo(piProjectName)
+      end
+      
+      
+      sWEBDEVVersion is string=NumToString(Val(WINDEVVersion), ".1f")
+      
+      
+      
+      <if CibleExécution=SiteWindows>
+      	bExecution is boolean
+      	sRegistryKey is string
+      	
+      	//Execution in 64 bits?
+      	if In64bitMode() then
+      		//Execution in 64 bits, read the 32-bit registry branch
+      		sRegistryKey = "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\PC SOFT\WEBDEV\"+sWEBDEVVersion+"\Applications\"+sSiteName//ProjectInfo(piNameDeployedSite)
+      	else
+      		//Execution in 32-bit mode
+      		sRegistryKey = "HKEY_LOCAL_MACHINE\SOFTWARE\PC SOFT\WEBDEV\"+sWEBDEVVersion+"\Applications\"+sSiteName//ProjectInfo(piNameDeployedSite)
+      	end
+      	
+      	//main direcgtory of the project (WDL)
+      gsSiteDirectories=RegistryQueryValue(sRegistryKey,"REPENCOURS",bExecution)
+      	if bExecution then 
+      		//development computer
+      		
+      		
+      		//Directory of data
+      		//HFPath if it exists 
+      sCallingDataDir=RegistryQueryValue(sRegistryKey,"HFPATH",bExecution)
+      		//Data directory identical in development
+      		if sCallingDataDir~="" then sCallingDataDir=gsSiteDirectories
+      	else
+      		//Deployment server
+      gsSiteDirectories=RegistryQueryValue(sRegistryKey,"PROJECTPATH",bExecution)	
+      		if not bExecution then 
+      gsSiteDirectories=fWebDir()
+      gsSiteDirectories=gsSiteDirectories[[to Position(gsSiteDirectories,fSep,0,FromEnd)]]
+      		end
+      			
+      		//Directory of data
+      		//HFPath if it exists (in deployment in most cases)
+      sCallingDataDir=RegistryQueryValue(sRegistryKey,"HFPATH",bExecution)
+      		if not bExecution then sCallingDataDir=fDataDir()
+      	end
+      	
+      <else if CibleExécution=SiteLinux>
+      	
+      	sSiteConf is string
+      	
+      	
+      	
+      	
+      	
+      	sSiteConf="/etc/PC SOFT/WEBDEV/"+sWEBDEVVersion+"/Applications/"+sSiteName+".conf"
+      	
+      	
+      	
+      	
+      	//main direcgtory of the project (WDL)
+      	
+      	
+      	//no possible case of development computer
+      	
+      	
+      	
+      	
+      	
+      gsSiteDirectories=INIRead("DEFAULT","PROJECTPATH","",sSiteConf)
+      	if gsSiteDirectories~="" then 
+      gsSiteDirectories=fWebDir()
+      gsSiteDirectories=gsSiteDirectories[[to Position(gsSiteDirectories, fSep, 0, FromEnd)]]
+      	end
+      	
+      	//Directory of data
+      	//HFPath if it exists (in deployment in most cases)
+      sCallingDataDir=INIRead("DEFAULT","HFPATH","",sSiteConf)
+      	if sCallingDataDir~="" then sCallingDataDir=fDataDir()
+      	
+      <end>
+      
+      
+      sTraceInfo+=[CR]+"Site directory: "+gsSiteDirectories
+      sTraceInfo+=[CR]+"Data directory: "+sCallingDataDir
+      
+      
+      if COL_SECUREPAYMENT.gsNameParameterFile~="" then
+      gsNameParameterFile =fSeparator(sCallingDataDir+["\"]+"Payment\SecurePayment.ini")
+      end
+      
+      sTraceInfo+=[CR]+"Parameter file: "+gsNameParameterFile
+      
+      end:
+      if bTestOnly then
+      	DisplayStringInHTML(sTraceInfo)
+      end
+      //gTraceLog("Retrieving the parameters of the database: "+CR+sTraceInfo)
+     type : 458752
+   -
+     name : ShortPath
+     internal_properties : CAAAAAgAAAAuN2y20TCc/+J6+XZZ9lTGsrSq88QM+ULB7Sc7fo8kAW149d0fWGw+OPfBjob9Q2st9PZoXF7gEBZ8zos0Z6al4bLA6p0rAHtcX22JujlCJKTfY3v8Kk4lk/TsFPdtsk8aSQS5W51LYIGK7UM2IdbHRIY5P3A0+zzWgYWAnzgy381En+8p5Nok728tfpy/x08ZpDixHdxQOEiTeKxr29DPyDxaieeyNToQrh2SCzvenSBLR7gcFEtQau2bacW84nExGivM
+     procedure_id : 2220122845206921685
+     type_code : 15
+     code : |1-
+      // Summary: Converting a long path into short path
+      // Syntax:
+      //[ <Result> = ] ShortPath (<sDirectory> is string)
+      //
+      // Parameters:
+      //	sDirectory (ANSI string): Directory to convert
+      // Return value:
+      // 	variant:  Short path
+      //
+      procedure ShortPath(local sDirectory is string)
+      
+      sShortPath is string
+      nSize		 is int	
+      	
+      
+      <if CibleExécution=ApplicationWindows32 or CibleExécution=SiteWindows>
+      	
+      	//Short name size
+      nSize = API("kernel32", "GetShortPathNameA", sDirectory, Null, 0)
+      	//Gives the proper size to the string
+      sShortPath = RepeatString(" ", nSize)
+      	// Retrieves the short name
+      nSize = API("kernel32", "GetShortPathNameA", sDirectory, &sShortPath, nSize)
+      	//Short name retrieved?
+      	if nSize>0 then
+      		// Yes: format it
+      sShortPath = NoSpace(sShortPath[[to nSize]])
+      	else	
+      		// No: keep the initial path
+      sShortPath = NoSpace(sDirectory)
+      	end
+      	
+      <else if CibleExécution=SiteLinux>
+      	
+      sShortPath = NoSpace(sDirectory)
+      	
+      <end>
+      
+      
+      
+      return fSeparator(sShortPath, fSeparatorPlatform)
+     type : 458752
+   -
+     name : TransactionLog
+     procedure_id : 2220122845206987221
+     type_code : 15
+     code : |1-
+      //Summary: Returns the log of secure payment transaction
+      // Syntaxe :
+      //[ <Résultat> = ] TransactionLog (<nTransactionID> est entier [, <sInformation> est chaîne [, <OrderNumber>]])
+      //
+      // Paramètres :
+      //	nTransactionID (entier) : [output] integer receiving the transaction identifier
+      //	sInformation (chaîne ANSI - valeur par défaut="") : [output] integer receiving the transaction identifier
+      //	OrderNumber (valeur par défaut="") : [output] String receiving the logged information of transaction
+      
+      // Return value:
+      // 	integer: Transaction status (PAYMENT_XXX constant) or -1 if an error occurred
+      //	vOrderNumber: Order number
+      //	nTransactionID (integer - default value=0): [output] integer receiving the transaction identifier
+      procedure TransactionLog(local nTransactionID is int, sInformation is string = "", OrderNumber ="") : int
+      
+      HReadSeekFirst(Transaction, TransactionID, nTransactionID)
+      	if HFound(Transaction) then
+      		
+      		// Retrieves the information
+      sInformation 	= Transaction.Loginfo
+      OrderNumber 	= Transaction.OrderNumber
+      		
+      		return Transaction.Status
+      	end
+      	
+      return -1
+     type : 458752
+   -
+     name : TransactionLogAccordingToID
+     procedure_id : 2220122845207052757
+     type_code : 15
+     code : |1-
+      //Summary: Returns the log of secure payment transaction
+      // Syntaxe :
+      //[ <Résultat> = ] TransactionLogAccordingToID (<vOrderNumber> [, <sInformation> est chaîne [, <nTransactionID> est entier sur 8 octets]])
+      //
+      // Paramètres :
+      //	vOrderNumber : Order number
+      //	sInformation (chaîne ANSI - valeur par défaut="") : [output] String receiving the logged information of transaction
+      //	nTransactionID (entier sur 8 octets - valeur par défaut=0) : [output] integer receiving the transaction identifier
+      
+      // Return value:
+      // 	integer: Transaction status (PAYMENT_XXX constant) or -1 if an error occurred
+      procedure TransactionLogAccordingToID(local vOrderNumber, sInformation is string = "", nTransactionID is 8-byte int = 0) : int
+      
+      HReadSeekFirst(Transaction, OrderNumber, vOrderNumber)
+      	if HFound(Transaction) then
+      		
+      		// Retrieves the information
+      sInformation 	= Transaction.Loginfo
+      nTransactionID 	= Transaction.TransactionID
+      		
+      		return Transaction.Status
+      	end
+      	
+      return -1
+     type : 458752
+   -
+     name : bCheckLuhnKey
+     internal_properties : CAAAAAgAAAAo8CIhMkaTLCItYDi00GtLKY5bB9mcwYoeh13H+8sLaXxXApzgFQKPLCxAl6QlhxxPB5RQif3+vH+PAowfeW6J75NLyta8xY4aqrZgbDyztJq18dRnNyxJ5dBebfC/PSQexZhJ8M8jZVVuSQDbllvuhScqtWwH9UZ39jR71Wpwi2W0U35oIpp3Cs2ZMuCtZsZhGCTR
+     procedure_id : 2220122845207118293
+     type_code : 15
+     code : |1-
+      // Summary: Function used to check whether the number of the credit card is valid
+      // Syntax:
+      //[ <Result> = ] bCheckLuhnKey (<nCB> is string)
+      //
+      // Parameters:
+      //	nCB (ANSI string): Card number
+      // Return value:
+      // 	boolean: True if the number is correct/coherent
+      //
+      function bCheckLuhnKey(nCB is string) : boolean
+      
+      sBCNumber 	is string = StringFormat(nCB,ccIgnoreInsideSpace)
+      nLength 	is int = 0 		// Number of code digits
+      nSubscript	  	is int = 0
+      nCheck 	  	is int
+      nNum 		is int
+      
+      // Check the number length
+      nLength = Length(sBCNumber)
+      
+      // The size is incorrect
+      if nLength = 0 or nLength <> 16 then return False
+      
+      // The number contains "0" only
+      if sBCNumber = RepeatString("0", 16) then return False
+      
+      
+      nSize is int = Length(sBCNumber)
+      // Check whether each character is a digit
+      for nSubscript = 1 to nSize
+      	// The number contains a 0 or a character
+      	if Val(sBCNumber[[nSubscript]]) = 0 and sBCNumber[[nSubscript]] <> "0" then return False
+      end
+      
+      // Check the code validity according to the Luhn key
+      // Count the first series of numbers
+      // XXXXXXXXXX
+      // x x x x x
+      // Sum of this series to get eCheck
+      for nSubscript = nLength to 1 STEP -2
+      nNum = Val(sBCNumber[[nSubscript to nSubscript]])
+      nCheck += nNum
+      end
+      
+      // Count the second series of numbers
+      // XXXXXXXXXX
+      // x x x x x
+      // Sum of multiplication by two (-9 if this multiplication is greater than 9)
+      // of this series to get eCheck
+      for nSubscript = nLength-1 to 1 STEP -2
+      nNum = Val(sBCNumber[[nSubscript to nSubscript]])
+      nNum = nNum * 2
+      	if nNum > 9 then
+      nCheck += nNum - 9
+      	else
+      nCheck += nNum
+      	end
+      end
+      
+      // The total sum must be a multiple of 10
+      if modulo(nCheck,10) <> 0 then return False
+      
+      // The number of the credit card is valid
+      return True
+     type : 458752
+   -
+     name : Payment
+     internal_properties : CAAAAAgAAACSHZ748P4qSYQEu4m2OBNatcKOcvZ1gUaOQFCZyW7y5xCNGzp5aJSpTgbC0PYk4UruHpa7zlRRo36q8bY8+vw9VSZw9HBsa14UTB7lrZrRut/czIq+oyg3xeqFVVCdxaDcO1zAJaZqFWnUz+CheZR9EmBmAw0W0WYZhiUxNu6eT4tVje+c30470b6AqA1p3PSGLM+uYWo=
+     procedure_id : 2220122845207183829
+     type_code : 15
+     code : |1+
+      // Summary: Stars a secure payment procedure for payment via a bank website
+      // Syntax:
+      //[ <Result> = ] Payment (<pclSecurePayment> is SecurePayment dynamic, <cyAmount> is currency, <sEmailAddress> is string)
+      // Parameters:
+      //	pclSecurePayment (SecurePayment dynamic): Configuration of the secure payment
+      //	cyAmount (currency): Amount of transaction
+      //	sEmailAddress (ANSI string): Email address of the customer
+      // Return value:
+      // 	boolean: True if the payment procedure was successfully run, False otherwise
+      //
+      procedure Payment(pclSecurePayment is SecurePayment dynamic, local cyAmount is currency, local sEmailAddress is string) <zombie = "'Payment_FromBank' or 'Direct_Payment' must be used "> : boolean 
+      
+      return Payment_FromBank(pclSecurePayment,cyAmount,sEmailAddress)
+      
+     type : 458752
+   -
+     name : Direct_Payment
+     internal_properties : CAAAAAgAAACEP+C2MrhraVJiz+0inuM6X6y8hJK7PWY9eBBVpaBGDkRTkZTh0uCNcDjK1Z5YuQ6i0r7jPkgt45qmVaZ0Bsx56VJYNHhwjzbgiKIXH/TLuElGJhg4DfIRnzRvt3Jnn/7uNcZWnyDsFxu+zOuqRgeq05EVvAYxNd47cJ+riJcVCGSu6Gz1hOtGMp8RB7rCG7bI7gnkP1Q=
+     procedure_id : 2220122845207249365
+     type_code : 15
+     starred : true
+     group : 1
+     code : |1-
+      // Summary: Stars a secure payment procedure for direct payment
+      // Syntax:
+      //[ <Result> = ] Direct_Payment (<pclSecurePayment> is SecurePayment dynamic, <cyAmount> is currency, <sEmailAddress> is string)
+      //
+      // Parameters:
+      //	pclSecurePayment (SecurePayment dynamic): Configuration of the secure payment
+      //	cyAmount (currency): Amount of transaction
+      //	sEmailAddress (ANSI string): Email address of the customer
+      // Return value:
+      // 	boolean: True if the payment procedure was successfully run, False otherwise
+      //
+      // Automatic process of exceptions:   run CASE EXCEPTION:
+      //
+      
+      
+      procedure Direct_Payment(pclSecurePayment is SecurePayment dynamic, local cyAmount is currency, local sEmailAddress is string) : boolean
+      
+      bReturn is boolean
+      	
+      gsLastTypeReturn=URL_RETURN
+      	
+      	// Starts the payment procedure
+      bReturn = pclSecurePayment:Direct_Payment(cyAmount, sEmailAddress,DebitCard)
+      	
+      return bReturn
+      
+      case exception:	
+      	return False
+     type : 458752
+   -
+     name : CardOperation
+     internal_properties : CAAAAAgAAAAeQeZWqR4YD9gNuw5ISpse4q5d4YfQh8vxSSLWonylqfGpzXAstIQfjtu5yNZJ9N/c91UXiZv53fcJCNn0zKQH2jXtD1BPimLproJX87E+1RbRiyhFUUvyPW0p6P5mipLcRRthNLb+/G4cHMU2fOcWaLmnLrlIMic+6HTcyeP/rQgO
+     procedure_id : 2220122845207314901
+     type_code : 15
+     code : |1-
+      // Summary: performs an operation on a stored card (e. g. deletion)
+      // Syntax:
+      //[ <Result> = ] CardOperation (<pclSecurePayment> is dynamic SecurePayment, <eActionOnTheCard> is COL_SECUREPAYMENT.CardAction [, <cyAmount> is currency])
+      //
+      // Parameters:
+      //	pclSecurePayment (dynamic SecurePayment): <specify the role of pclSecurePayment>
+      //	eActionOnTheCard (COL_SECUREPAYMENT.CardAction): <specify the role of eActionOnTheCard>
+      //	cyAmount (currency - default value=0): <specify the role of cyAmount>
+      // Return value:
+      // 	boolean: // 	None
+      //
+      // Example:
+      // Indicate an example.
+      //// Automatic process of exceptions:   run CASE EXCEPTION:
+      //
+      
+      procedure CardOperation(pclSecurePayment is SecurePayment dynamic,eActionOnTheCard is CardAction,cyAmount is currency=0) : boolean
+      
+      bReturn is boolean
+      
+      // Starts the payment procedure
+      bReturn = pclSecurePayment:Direct_Payment(cyAmount,"",eActionOnTheCard)
+      
+      return bReturn
+      
+      case exception:	
+      return False
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : COL_PAIEMENTSECURISE
+resources :
+ string_res :
+  identifier : 0x19a7e53700018541
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ
